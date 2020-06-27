@@ -4,6 +4,7 @@ App({
     console.log('getSystemInfoSync', dd.getSystemInfoSync());
     console.log('SDKVersion', dd.SDKVersion);
     this.DingLogin();
+    this.MoveMenu1();
   },
   onShow() {
     console.log('App Show');
@@ -39,5 +40,8 @@ App({
         });
       }
     });
+  },
+  MoveMenu1(){
+
   },
 });

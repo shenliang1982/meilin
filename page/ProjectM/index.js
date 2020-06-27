@@ -19,12 +19,12 @@ Page({
       list: [
         {
           icon: '/image/view.png',
-          title: '项目管理',
+          title: '项目',
           entitle: 'Project',
           page: 'ProjectList',
         }, {
           icon: '/image/basic.png',
-          title: '项目日志',
+          title: '日志',
           entitle: 'Diary',
           page: 'ProjectDiaryList',
         },
