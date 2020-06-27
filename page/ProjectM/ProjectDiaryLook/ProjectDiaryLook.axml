@@ -1,0 +1,31 @@
+<view class="page">
+  <view class="page-description">日志查看</view>
+  <form onSubmit="onSubmit" onReset="onReset">
+    <view class="page-section">
+
+      <view class="form-row">
+        <view class="form-row-label">项目</view>
+        <view class="form-row-content">
+          <input class="input" name="name_project" value="{{data_1.name_project}}" />
+        </view>
+      </view>
+      <view class="form-line" />
+
+      <view class="form-row">
+        <view class="form-row-label">关键字</view>
+        <view class="form-row-content">
+          <input class="input" name="keyword" value="{{data_1.keyword}}" />
+        </view>
+      </view>
+      <view class="form-line" />
+      <view class="page-section">
+        <view class="page-section-title">日志</view>
+        <view class="page-section-demo">
+          <textarea onBlur="bindTextAreaBlur" auto-height name="diary" value="{{data_1.diary}}" maxlength="200" />
+        </view>
+      </view>
+      <view class="form-line" />
+
+    </view>
+  </form>
+</view>
