@@ -6,7 +6,7 @@ Page({
     },
     data_1: {},
   },
-  selectPhone() {
+  selectProject() {
     var t = this;
     //载入列表
     dd.httpRequest({
@@ -33,6 +33,43 @@ Page({
           success: (res) => {
             t.setData({ "data_1.no_project": d_1[res.index].no_ls });
             t.setData({ "data_1.name_project": d_1[res.index].name_project });
+          },
+        });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: (res2) => {
+        dd.hideLoading();
+      },
+    });
+  },
+  selectModel() {
+    var t = this;
+    //载入列表
+    dd.httpRequest({
+      url: "http://47.114.96.139/ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        name_space: "ProjectM.ProjectDiaryEdit.AlxgroupControl1name_model"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        var d_1 = res2.data.json_ar_0;
+        var d_2 = [];
+        for (var i = 0; i < d_1.length; i++) {
+          var d = d_1[i];
+          d_2.push(d.name_model);
+        }
+
+        dd.showActionSheet({
+          title: "选择模板",
+          items: d_2,
+          //cancelButtonText: '取消',
+          success: (res) => {
+            t.setData({ "data_1.diary": d_1[res.index].model });
           },
         });
       },

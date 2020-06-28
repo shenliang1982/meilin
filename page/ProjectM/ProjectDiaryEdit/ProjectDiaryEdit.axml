@@ -9,7 +9,7 @@
         </view>
       </view>
       <view class="extra-info">
-        <button type="ghost" size="mini" onTap="selectPhone" loading>选择</button>
+        <button type="ghost" size="mini" onTap="selectProject" loading>项目</button>
       </view>
       <view class="form-line" />
       <view class="form-row">
@@ -23,6 +23,9 @@
         <view class="page-section-title">日志</view>
         <view class="page-section-demo">
           <textarea onBlur="bindTextAreaBlur" auto-height name="diary" value="{{data_1.diary}}" maxlength="200" />
+        </view>
+        <view class="extra-info">
+          <button type="ghost" size="mini" onTap="selectModel" loading>模板</button>
         </view>
       </view>
       <view class="form-line" />
