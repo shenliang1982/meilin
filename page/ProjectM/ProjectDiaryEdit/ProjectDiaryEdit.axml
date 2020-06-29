@@ -5,10 +5,8 @@
       <view class="form-row">
         <view class="form-row-label">项目</view>
         <view class="form-row-content">
-          <input class="input" name="name_project" value="{{data_1.name_project}}" />
+          <input class="input" name="name_project" disabled="disabled" value="{{data_1.name_project}}" />
         </view>
-      </view>
-      <view class="extra-info">
         <button type="ghost" size="mini" onTap="selectProject" loading>项目</button>
       </view>
       <view class="form-line" />
