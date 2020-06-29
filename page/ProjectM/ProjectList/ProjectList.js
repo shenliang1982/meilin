@@ -21,52 +21,15 @@ Page({
   handleListItemTap(e) {
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
-    dd.showActionSheet({
-      title: d.title_2,
-      items: ['修改', '删除', '日志'],
-      //cancelButtonText: '取消',
-      success: (res) => {
-        if (res.index == 0) {
-          dd.navigateTo({
-            url: '../ProjectEdit/ProjectEdit?no_ls=' + d.no_ls
-          });
-        }
-        else if (res.index == 1) {
-          //提交
-          dd.httpRequest({
-            url: "http://47.114.96.139/ActBack.ashx",
-            method: 'POST',
-            data: {
-              username: t.data.login.username,
-              code_login: t.data.login.code_login,
-              no_ls: d.no_ls,
-              name_space: "ProjectM.ProjectList.Delete"
-            },
-            dataType: 'json',
-            success: (res2) => {
-              t.onLoad();
-            },
-            fail: (res2) => {
-              dd.alert({content: JSON.stringify(res2)});
-            },
-            complete: (res2) => {
-              dd.hideLoading();
-            },
-          });
-        }
-        else if (res.index == 2) {
-          dd.navigateTo({
-            url: '../ProjectListDiary/ProjectListDiary?no_project=' + d.no_ls
-          });
-        }
-      },
+    dd.navigateTo({
+      url: '../ProjectListDiary/ProjectListDiary?no_project=' + d.no_ls
     });
   },
   onShow() {
     var t = this;
     dd.getStorage({
       key: 'is_on_show_refresh',
-      success: function(res) {
+      success: function (res) {
         if (res.data) {
           dd.setStorage({ key: 'is_on_show_refresh', data: false });
           t.onLoad();
@@ -79,7 +42,7 @@ Page({
     //判定是否登录
     dd.getStorage({
       key: 'login',
-      success: function(res) {
+      success: function (res) {
         t.setData({ login: res.data });
         //载入等待
         dd.showLoading({
@@ -122,7 +85,7 @@ Page({
             t.setData({ "listData.data": d_2 });
           },
           fail: (res2) => {
-            dd.alert({content: JSON.stringify(res2)});
+            dd.alert({ content: JSON.stringify(res2) });
           },
           complete: (res2) => {
             dd.hideLoading();

@@ -36,6 +36,7 @@ Page({
     },
   },
   onLoad(e) {
+    return;
     //e.no_ls
     var t = this;
     //判定是否登录
@@ -60,7 +61,6 @@ Page({
           },
           dataType: 'json',
           success: (res2) => {
-            dd.alert({ content: JSON.stringify(res2) });
             var d_1 = res2.data.json_ar_0;
             for (var i = 0; i < d_1.length; i++) {
               for (var j = 0; j < t.data.arr.list.length; j++) {
