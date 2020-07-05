@@ -68,6 +68,7 @@ Page({
               var title_1 = "";
               title_1 += "[创建时间]" + d_1[i].date_make;
               title_1 += "\n[项目名称]" + d_1[i].name_project;
+              title_1 += "\n[负责人]" + d_1[i].person_admin;
               var title_2 = "";
               title_2 += "[创建时间]" + d_1[i].date_make;
               title_2 += "\n[项目名称]" + d_1[i].name_project;

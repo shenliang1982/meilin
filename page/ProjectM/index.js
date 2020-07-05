@@ -56,7 +56,7 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            name_menu_1: "梅林",
+            name_menu_1: "梅霖",
             name_space: "Purview.MenuLeft.HideMenu2"
           },
           dataType: 'json',
