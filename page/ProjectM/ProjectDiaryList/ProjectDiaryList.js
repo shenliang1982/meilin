@@ -21,24 +21,15 @@ Page({
   handleListItemTap(e) {
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
-    dd.showActionSheet({
-      title: d.title_2,
-      items: ['修改'],
-      //cancelButtonText: '取消',
-      success: (res) => {
-        if (res.index == 0) {
-          dd.navigateTo({
-            url: '../ProjectDiaryEdit/ProjectDiaryEdit?no_ls=' + d.no_ls
-          });
-        }
-      },
+    dd.navigateTo({
+      url: '../ProjectDiaryEdit/ProjectDiaryEdit?no_ls=' + d.no_ls
     });
   },
   onShow() {
     var t = this;
     dd.getStorage({
       key: 'is_on_show_refresh',
-      success: function(res) {
+      success: function (res) {
         if (res.data) {
           dd.setStorage({ key: 'is_on_show_refresh', data: false });
           t.onLoad();
@@ -51,7 +42,7 @@ Page({
     //判定是否登录
     dd.getStorage({
       key: 'login',
-      success: function(res) {
+      success: function (res) {
         t.setData({ login: res.data });
         //载入等待
         dd.showLoading({
@@ -96,7 +87,7 @@ Page({
             t.setData({ "listData.data": d_2 });
           },
           fail: (res2) => {
-            dd.alert({content: JSON.stringify(res2)});
+            dd.alert({ content: JSON.stringify(res2) });
           },
           complete: (res2) => {
             dd.hideLoading();

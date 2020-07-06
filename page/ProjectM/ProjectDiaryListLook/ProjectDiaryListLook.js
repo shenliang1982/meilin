@@ -32,7 +32,7 @@ Page({
       }
     });
   },
-  onLoad(e) {
+  onLoad() {
     var t = this;
     //判定是否登录
     dd.getStorage({
@@ -51,12 +51,11 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            no_project: e.no_project,
-            name_space: "ProjectM.ProjectListDiary.BindinggridControl1"
+            name_space: "ProjectM.ProjectDiaryListLook.BindinggridControl1"
           },
           dataType: 'json',
           success: (res2) => {
-            //dd.alert({content: "51" + JSON.stringify(res2.data)});
+            //dd.alert({ content: JSON.stringify(res2) });
             var d_1 = res2.data.json_ar_0;
             var d_2 = [];
             for (var i = 0; i < d_1.length; i++) {

@@ -27,6 +27,11 @@ Page({
           title: '日志',
           entitle: 'Diary',
           page: 'ProjectDiaryList',
+        }, {
+          icon: '/image/form.png',
+          title: '查看',
+          entitle: 'Diary',
+          page: 'ProjectDiaryListLook',
         },
       ],
     },
