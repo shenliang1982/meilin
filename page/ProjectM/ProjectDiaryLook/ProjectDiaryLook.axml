@@ -6,7 +6,7 @@
       <view class="form-row">
         <view class="form-row-label">项目</view>
         <view class="form-row-content">
-          <input class="input" name="name_project" value="{{data_1.name_project}}" />
+          <input class="input" name="name_project" disabled="disabled" value="{{data_1.name_project}}" />
         </view>
       </view>
       <view class="form-line" />
@@ -14,17 +14,40 @@
       <view class="form-row">
         <view class="form-row-label">关键字</view>
         <view class="form-row-content">
-          <input class="input" name="keyword" value="{{data_1.keyword}}" />
+          <input class="input" name="keyword" disabled="disabled" value="{{data_1.keyword}}" />
         </view>
       </view>
       <view class="form-line" />
       <view class="page-section">
         <view class="page-section-title">日志</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="diary" value="{{data_1.diary}}" maxlength="200" />
+          <textarea onBlur="bindTextAreaBlur" auto-height name="diary" disabled="disabled" value="{{data_1.diary}}" maxlength="1000" />
         </view>
       </view>
       <view class="form-line" />
+      <view class="page-section">
+        <view class="page-section-title">回复</view>
+        <view class="page-section-demo">
+          <textarea onBlur="bindTextAreaBlur" auto-height name="back" disabled="disabled" value="{{data_1.back}}" maxlength="250" />
+        </view>
+      </view>
+      <view class="form-line" />
+      <view class="page-section">
+        <view class="page-section-title">新增回复</view>
+        <view class="page-section-demo">
+          <textarea onBlur="bindTextAreaBlur" auto-height name="back_add" value="{{data_1.back_add}}" maxlength="50" />
+        </view>
+      </view>
+      <view class="form-line" />
+
+    <view class="page-section">
+      <view class="page-section-btns">
+        <view>
+          <button type="ghost" size="mini" formType="reset">重置</button></view>
+        <view>
+          <button type="primary" size="mini" formType="submit">提交</button></view>
+      </view>
+    </view>
 
     </view>
   </form>

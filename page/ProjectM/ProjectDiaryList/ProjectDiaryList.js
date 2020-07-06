@@ -21,9 +21,19 @@ Page({
   handleListItemTap(e) {
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
-    dd.navigateTo({
-      url: '../ProjectDiaryEdit/ProjectDiaryEdit?no_ls=' + d.no_ls
-    });
+    var date_make = new Date(d.date_make);
+    var now = new Date();
+    if (now.getFullYear() == date_make.getFullYear()
+      && now.getMonth() == date_make.getMonth()
+      && now.getDate() == date_make.getDate()
+    )
+      dd.navigateTo({
+        url: '../ProjectDiaryEdit/ProjectDiaryEdit?no_ls=' + d.no_ls
+      });
+    else
+      dd.navigateTo({
+        url: '../ProjectDiaryLook/ProjectDiaryLook?no_ls=' + d.no_ls
+      });
   },
   onShow() {
     var t = this;
