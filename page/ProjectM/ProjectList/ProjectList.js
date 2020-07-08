@@ -5,7 +5,7 @@ Page({
   data: {
     listData: {
       onItemTap: 'handleListItemTap',
-      header: '项目列表',
+      //header: '项目列表',
       data: []
     },
     login: {
