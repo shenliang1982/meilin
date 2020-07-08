@@ -123,6 +123,7 @@ Page({
     //t.data.data_1.no_project = e.detail.value.no_project;
     t.data.data_1.keyword = e.detail.value.keyword;
     t.data.data_1.diary = e.detail.value.diary;
+    t.data.data_1.date_diary = e.detail.value.date_diary;
     //载入等待
     dd.showLoading({
       content: '加载中...',

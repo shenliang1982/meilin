@@ -76,7 +76,7 @@ Page({
             for (var i = 0; i < d_1.length; i++) {
               var d = d_1[i];
               var title_1 = "";
-              title_1 += "[添加时间]" + d.date_make;
+              title_1 += "[日志时间]" + d.date_diary;
               title_1 += "\n[项目名称]" + d.name_project;
               title_1 += "\n[填写者]" + d.pet_name;
               title_1 += "\n[关键字]" + d.keyword;
@@ -90,6 +90,7 @@ Page({
                 , extra: "查看详情"
                 , textMode: "wrap"
                 , no_ls: d_1[i].no_ls
+                , date_make: d_1[i].date_make
                 , title_2: title_2
               };
               d_2.push(d);

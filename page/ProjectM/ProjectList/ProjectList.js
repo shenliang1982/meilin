@@ -66,7 +66,7 @@ Page({
             for (var i = 0; i < d_1.length; i++) {
               var d = d_1[i];
               var title_1 = "";
-              title_1 += "[创建时间]" + d_1[i].date_make;
+              title_1 += "[创建时间]" + d_1[i].date_make.substr(0, 10);
               title_1 += "\n[项目名称]" + d_1[i].name_project;
               title_1 += "\n[负责人]" + d_1[i].person_admin;
               var title_2 = "";
