@@ -13,8 +13,9 @@
       <view class="form-row">
         <view class="form-row-label">日志日期</view>
         <view class="form-row-content">
-          <input class="input" name="date_diary" value="{{data_1.date_diary}}" />
+          <input class="input" name="date_diary" disabled="disabled" value="{{data_1.date_diary}}" />
         </view>
+        <button type="ghost" size="mini" onTap="datePicker" >日期</button>
       </view>
       <view class="form-line" />
       <view class="form-row">

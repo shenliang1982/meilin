@@ -6,6 +6,16 @@ Page({
     },
     data_1: {},
   },
+  datePicker() {
+    dd.datePicker({
+      currentDate: this.data.data_1.date_diary,
+      startDate: '2020-1-1',
+      endDate: '2030-1-1',
+      success: (res) => {
+        this.setData({ "data_1.date_diary": res.date });
+      },
+    });
+  },
   selectProject() {
     var t = this;
     //载入列表
