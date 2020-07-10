@@ -38,8 +38,6 @@
     <view class="page-section">
       <view class="page-section-btns">
         <view>
-          <button type="ghost" size="mini" formType="reset">重置</button></view>
-        <view>
           <button type="primary" size="mini" formType="submit">提交</button></view>
       </view>
     </view>
