@@ -1,8 +1,8 @@
 <import src="/page/biz/components/list/index.axml" />
-
-<view>
+<view style="display: flex; justify-content: space-between;">
   <button type="ghost" size="mini" onTap="add" loading>增加</button>
+  <button type="ghost" size="mini" onTap="newdate" loading>{{date_diary}}</button>
 </view>
 <view>
-    <template is="List" data={{...listData}}></template>
+  <template is="List" data={{...listData}}></template>
 </view>

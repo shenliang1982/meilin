@@ -12,6 +12,19 @@ Page({
       username: "",
       code_login: ""
     },
+    date_diary: '',
+  },
+  newdate() {
+    var t = this;
+    dd.datePicker({
+      currentDate: t.data.date_diary,
+      startDate: '2020-1-1',
+      endDate: '2030-1-1',
+      success: (res) => {
+        t.setData({ "date_diary": res.date });
+        t.onLoad();
+      },
+    });
   },
   handleListItemTap(e) {
     var t = this;
@@ -34,6 +47,10 @@ Page({
   },
   onLoad(e) {
     var t = this;
+    if(t.data.date_diary == ''){
+      var now = new Date();
+      t.setData({ "date_diary": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
+    }
     //判定是否登录
     dd.getStorage({
       key: 'login',
@@ -52,6 +69,8 @@ Page({
             username: t.data.login.username,
             code_login: t.data.login.code_login,
             no_project: e.no_project,
+            date_start: t.data.date_diary,
+            date_end: t.data.date_diary + " 23:59:59",
             name_space: "ProjectM.ProjectListDiary.BindinggridControl1"
           },
           dataType: 'json',
