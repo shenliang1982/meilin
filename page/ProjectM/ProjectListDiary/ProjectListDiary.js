@@ -13,6 +13,7 @@ Page({
       code_login: ""
     },
     date_diary: '',
+    no_project: '',
   },
   newdate() {
     var t = this;
@@ -50,6 +51,7 @@ Page({
     if(t.data.date_diary == ''){
       var now = new Date();
       t.setData({ "date_diary": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
+      t.setData({ "no_project": e.no_project });
     }
     //判定是否登录
     dd.getStorage({
@@ -68,7 +70,7 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            no_project: e.no_project,
+            no_project: t.data.no_project,
             date_start: t.data.date_diary,
             date_end: t.data.date_diary + " 23:59:59",
             name_space: "ProjectM.ProjectListDiary.BindinggridControl1"

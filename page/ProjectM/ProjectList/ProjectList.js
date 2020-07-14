@@ -21,8 +21,22 @@ Page({
   handleListItemTap(e) {
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
-    dd.navigateTo({
-      url: '../ProjectListDiary/ProjectListDiary?no_project=' + d.no_ls
+    dd.showActionSheet({
+      title: "项目操作",
+      items: ['查看项目', '查看日志'],
+      //cancelButtonText: '取消',
+      success: (res) => {
+        if (res.index == 0) {
+          dd.navigateTo({
+            url: '../ProjectLook/ProjectLook?no_ls=' + d.no_ls
+          });
+        }
+        else if (res.index == 1) {
+          dd.navigateTo({
+            url: '../ProjectListDiary/ProjectListDiary?no_project=' + d.no_ls
+          });
+        }
+      },
     });
   },
   onShow() {
