@@ -155,7 +155,7 @@ Page({
       },
       dataType: 'json',
       success: (res2) => {
-        if (res2.data.is_ok == "True") {
+        if (res2.data.is_ok) {
           dd.setStorage({ key: 'is_on_show_refresh', data: true });
           dd.navigateBack();
         }
