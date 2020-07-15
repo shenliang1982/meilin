@@ -29,21 +29,21 @@
       <view class="page-section">
         <view class="page-section-title">日志</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="diary" disabled="disabled" value="{{data_1.diary}}" maxlength="1000" />
+          <textarea auto-height name="diary" disabled="disabled" value="{{data_1.diary}}" maxlength="1000" />
         </view>
       </view>
       <view class="form-line" />
       <view class="page-section">
         <view class="page-section-title">回复</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="back" disabled="disabled" value="{{data_1.back}}" maxlength="250" />
+          <textarea auto-height name="back" disabled="disabled" value="{{data_1.back}}" maxlength="250" />
         </view>
       </view>
       <view class="form-line" />
       <view class="page-section">
         <view class="page-section-title">新增回复</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="back_add" value="{{data_1.back_add}}" maxlength="50" />
+          <textarea auto-height name="back_add" value="{{data_1.back_add}}" maxlength="50" />
         </view>
       </view>
       <view class="form-line" />

@@ -46,7 +46,7 @@
       <view class="page-section">
         <view class="page-section-title">工程概况</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="budget_situation" disabled="disabled" value="{{data_1.budget_situation}}" maxlength="1000" />
+          <textarea auto-height name="budget_situation" disabled="disabled" value="{{data_1.budget_situation}}" maxlength="1000" />
         </view>
       </view>
       <view class="form-line" />
@@ -54,7 +54,7 @@
       <view class="page-section">
         <view class="page-section-title">编制依据</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="budget_according" disabled="disabled" value="{{data_1.budget_according}}" maxlength="1000" />
+          <textarea auto-height name="budget_according" disabled="disabled" value="{{data_1.budget_according}}" maxlength="1000" />
         </view>
       </view>
       <view class="form-line" />
@@ -62,7 +62,7 @@
       <view class="page-section">
         <view class="page-section-title">说明</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="budget_remark" disabled="disabled" value="{{data_1.budget_remark}}" maxlength="1000" />
+          <textarea auto-height name="budget_remark" disabled="disabled" value="{{data_1.budget_remark}}" maxlength="1000" />
         </view>
       </view>
       <view class="form-line" />
@@ -70,7 +70,7 @@
       <view class="page-section">
         <view class="page-section-title">投标价格组成</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="budget_constitute" disabled="disabled" value="{{data_1.budget_constitute}}" maxlength="1000" />
+          <textarea auto-height name="budget_constitute" disabled="disabled" value="{{data_1.budget_constitute}}" maxlength="1000" />
         </view>
       </view>
       <view class="form-line" />
@@ -78,7 +78,7 @@
       <view class="page-section">
         <view class="page-section-title">经营部预算部意见</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="budget_suggest" disabled="disabled" value="{{data_1.budget_suggest}}" maxlength="1000" />
+          <textarea auto-height name="budget_suggest" disabled="disabled" value="{{data_1.budget_suggest}}" maxlength="1000" />
         </view>
       </view>
       <view class="form-line" />
@@ -86,7 +86,7 @@
       <view class="page-section">
         <view class="page-section-title">总经理意见</view>
         <view class="page-section-demo">
-          <textarea onBlur="bindTextAreaBlur" auto-height name="budget_idea" disabled="disabled" value="{{data_1.budget_idea}}" maxlength="1000" />
+          <textarea auto-height name="budget_idea" disabled="disabled" value="{{data_1.budget_idea}}" maxlength="1000" />
         </view>
       </view>
       <view class="form-line" />
