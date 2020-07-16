@@ -41,8 +41,6 @@ Page({
     },
   },
   onLoad(e) {
-    return;
-    //e.no_ls
     var t = this;
     //判定是否登录
     dd.getStorage({
@@ -67,13 +65,17 @@ Page({
           dataType: 'json',
           success: (res2) => {
             var d_1 = res2.data.json_ar_0;
+            var d_2 = t.data.arr.list;
             for (var i = 0; i < d_1.length; i++) {
-              for (var j = 0; j < t.data.arr.list.length; j++) {
-                if (t.data.arr.list[j].title == d_1[i].name_menu_2) {
-                  t.data.arr.list.splice(j, 1);
+              for (var j = 0; j < d_2.length; j++) {
+                if (d_2[j].title == d_1[i].name_menu_2) {
+                  d_2.splice(j, 1);
+                  break;
                 }
               }
             }
+            t.setData({ "arr.list": [] });
+            t.setData({ "arr.list": d_2 });
           },
           fail: (res2) => {
             dd.alert({ content: JSON.stringify(res2) });
