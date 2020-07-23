@@ -12,17 +12,30 @@ Page({
       username: "",
       code_login: ""
     },
-    date_diary: '',
+    date_1: '',
+    date_2: '',
     no_project: '',
   },
-  newdate() {
+  newdate_1() {
     var t = this;
     dd.datePicker({
-      currentDate: t.data.date_diary,
+      currentDate: t.data.date_1,
       startDate: '2020-1-1',
       endDate: '2030-1-1',
       success: (res) => {
-        t.setData({ "date_diary": res.date });
+        t.setData({ "date_1": res.date });
+        t.onLoad();
+      },
+    });
+  },
+  newdate_2() {
+    var t = this;
+    dd.datePicker({
+      currentDate: t.data.date_2,
+      startDate: '2020-1-1',
+      endDate: '2030-1-1',
+      success: (res) => {
+        t.setData({ "date_2": res.date });
         t.onLoad();
       },
     });
@@ -48,9 +61,10 @@ Page({
   },
   onLoad(e) {
     var t = this;
-    if(t.data.date_diary == ''){
+    if(t.data.date_1 == ''){
       var now = new Date();
-      t.setData({ "date_diary": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
+      t.setData({ "date_1": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
+      t.setData({ "date_2": t.data.date_1 });
       t.setData({ "no_project": e.no_project });
     }
     //判定是否登录
@@ -71,8 +85,8 @@ Page({
             username: t.data.login.username,
             code_login: t.data.login.code_login,
             no_project: t.data.no_project,
-            date_start: t.data.date_diary,
-            date_end: t.data.date_diary + " 23:59:59",
+            date_start: t.data.date_1,
+            date_end: t.data.date_2 + " 23:59:59",
             name_space: "ProjectM.ProjectListDiary.BindinggridControl1"
           },
           dataType: 'json',
