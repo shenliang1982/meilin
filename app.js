@@ -19,7 +19,7 @@ App({
       success: function(res1) {
         //免登
         dd.httpRequest({
-          url: "http://47.114.96.139/DingLogin.ashx",
+          url: "http://47.114.96.139:8888/DingLogin.ashx",
           method: 'POST',
           data: {
             code: res1.authCode

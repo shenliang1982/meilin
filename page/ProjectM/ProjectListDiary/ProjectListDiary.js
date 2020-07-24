@@ -63,8 +63,8 @@ Page({
     var t = this;
     if(t.data.date_1 == ''){
       var now = new Date();
-      t.setData({ "date_1": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
-      t.setData({ "date_2": t.data.date_1 });
+      t.setData({ "date_1": now.getFullYear() + "-" + (now.getMonth() + 1) + "-01" });
+      t.setData({ "date_2": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
       t.setData({ "no_project": e.no_project });
     }
     //判定是否登录
@@ -79,7 +79,7 @@ Page({
         });
         //载入列表
         dd.httpRequest({
-          url: "http://47.114.96.139/ActBack.ashx",
+          url: "http://47.114.96.139:8888/ActBack.ashx",
           method: 'POST',
           data: {
             username: t.data.login.username,

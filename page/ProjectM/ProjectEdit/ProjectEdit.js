@@ -21,7 +21,7 @@ Page({
         });
         //载入列表
         dd.httpRequest({
-          url: "http://47.114.96.139/ActBack.ashx",
+          url: "http://47.114.96.139:8888/ActBack.ashx",
           method: 'POST',
           data: {
             username: t.data.login.username,
@@ -57,7 +57,7 @@ Page({
       json_ar_0: [t.data.data_1]
     };
     dd.httpRequest({
-      url: "http://47.114.96.139/ActBack.ashx",
+      url: "http://47.114.96.139:8888/ActBack.ashx",
       method: 'POST',
       data: {
         username: t.data.login.username,
