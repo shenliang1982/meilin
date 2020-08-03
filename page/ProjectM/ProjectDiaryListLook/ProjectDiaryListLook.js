@@ -14,6 +14,41 @@ Page({
     },
     date_1: '',
     date_2: '',
+    userid_ding: '',
+    dept_ding: '',
+    name_ding: '部门人员',
+  },
+  new_dept_ding() {
+    var t = this;
+    dd.complexChoose({
+      title: "部门人员",            //标题
+      multiple: false,            //是否多选
+      limitTips: "超出了",          //超过限定人数返回提示
+      maxUsers: 1,            //最大可选人数
+      pickedUsers: [],            //已选用户
+      pickedDepartments: [],          //已选部门
+      disabledUsers: [],            //不可选用户
+      disabledDepartments: [],        //不可选部门
+      requiredUsers: [],            //必选用户（不可取消选中状态）
+      requiredDepartments: [],        //必选部门（不可取消选中状态）
+      permissionType: "xxx",          //可添加权限校验，选人权限，目前只有GLOBAL这个参数
+      responseUserOnly: false,        //返回人，或者返回人和部门
+      success: function (res) {
+        if (res.users.length > 0) {
+          t.setData({ "userid_ding": res.users[0].userId });
+          t.setData({ "dept_ding": "" });
+          t.setData({ "name_ding": res.users[0].name });
+        }
+        else if (res.departments.length > 0) {
+          t.setData({ "userid_ding": "" });
+          t.setData({ "dept_ding": res.departments[0].name });
+          t.setData({ "name_ding": res.departments[0].name });
+        }
+        t.onLoad();
+      },
+      fail: function (err) {
+      }
+    })
   },
   newdate_1() {
     var t = this;
@@ -60,7 +95,7 @@ Page({
   },
   onLoad() {
     var t = this;
-    if(t.data.date_1 == ''){
+    if (t.data.date_1 == '') {
       var now = new Date();
       t.setData({ "date_1": now.getFullYear() + "-" + (now.getMonth() + 1) + "-01" });
       t.setData({ "date_2": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
@@ -84,6 +119,8 @@ Page({
             code_login: t.data.login.code_login,
             date_start: t.data.date_1,
             date_end: t.data.date_2 + " 23:59:59",
+            dept_ding: t.data.dept_ding,
+            userid_ding: t.data.userid_ding,
             name_space: "ProjectM.ProjectDiaryListLook.BindinggridControl1"
           },
           dataType: 'json',
