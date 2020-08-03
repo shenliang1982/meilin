@@ -3,11 +3,11 @@ App({
     console.log('App Launch', options);
     console.log('getSystemInfoSync', dd.getSystemInfoSync());
     console.log('SDKVersion', dd.SDKVersion);
-    this.CheckUpdate();
     this.DingLogin();
   },
   onShow() {
     console.log('App Show');
+    this.CheckUpdate();
   },
   onHide() {
     console.log('App Hide');
