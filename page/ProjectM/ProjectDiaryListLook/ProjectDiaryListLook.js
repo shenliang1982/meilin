@@ -97,7 +97,8 @@ Page({
     var t = this;
     if (t.data.date_1 == '') {
       var now = new Date();
-      t.setData({ "date_1": now.getFullYear() + "-" + (now.getMonth() + 1) + "-01" });
+      var now_1 = new Date(now.getTime() - 7*24*60*60*1000);
+      t.setData({ "date_1": now_1.getFullYear() + "-" + (now_1.getMonth() + 1) + "-" + (now_1.getDate()) });
       t.setData({ "date_2": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
     }
     //判定是否登录
@@ -132,12 +133,12 @@ Page({
               var d = d_1[i];
               var title_1 = "";
               title_1 += "[日志时间]" + d.date_diary.substr(0, 10);
-              title_1 += "\n[项目名称]" + d.name_project;
               title_1 += "\n[填写者]" + d.pet_name;
-              title_1 += "\n[关键字]" + d.keyword;
+              title_1 += "\n[填写时间]" + d.date_make.substr(5,11);
+              title_1 += "\n[项目名称]" + d.name_project;
               var title_2 = "";
-              title_2 += "[添加时间]" + d.date_make;
               title_2 += "\n[填写者]" + d.pet_name;
+              title_2 += "\n[关键字]" + d.keyword;
 
               var d = {
                 title: title_1
