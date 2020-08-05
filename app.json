@@ -8,7 +8,9 @@
     "page/ProjectM/ProjectDiaryList/ProjectDiaryList",
     "page/ProjectM/ProjectDiaryEdit/ProjectDiaryEdit",
     "page/ProjectM/ProjectDiaryListLook/ProjectDiaryListLook",
-    "page/ProjectM/ProjectLook/ProjectLook"
+    "page/ProjectM/ProjectLook/ProjectLook",
+    "page/ProjectM/ProjectDiaryListLookDept/ProjectDiaryListLookDept",
+    "page/ProjectM/ProjectDiaryListLookAcc/ProjectDiaryListLookAcc"
   ],
   "window": {
     "defaultTitle": "梅霖ERP",

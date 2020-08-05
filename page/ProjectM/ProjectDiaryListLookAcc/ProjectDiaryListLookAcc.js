@@ -5,46 +5,19 @@ Page({
   data: {
     listData: {
       onItemTap: 'handleListItemTap',
-      //header: '项目日志',
+      //header: 'list1',
       data: []
     },
     login: {
       username: "",
       code_login: ""
     },
-    date_1: '',
-    date_2: '',
-    id_acc: '',
-  },
-  newdate_1() {
-    var t = this;
-    dd.datePicker({
-      currentDate: t.data.date_1,
-      startDate: '2020-1-1',
-      endDate: '2030-1-1',
-      success: (res) => {
-        t.setData({ "date_1": res.date });
-        t.onLoad();
-      },
-    });
-  },
-  newdate_2() {
-    var t = this;
-    dd.datePicker({
-      currentDate: t.data.date_2,
-      startDate: '2020-1-1',
-      endDate: '2030-1-1',
-      success: (res) => {
-        t.setData({ "date_2": res.date });
-        t.onLoad();
-      },
-    });
   },
   handleListItemTap(e) {
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
     dd.navigateTo({
-      url: '../ProjectDiaryLook/ProjectDiaryLook?no_ls=' + d.no_ls
+      url: '../ProjectDiaryListLook/ProjectDiaryListLook?id_acc=' + d.id
     });
   },
   onShow() {
@@ -61,12 +34,6 @@ Page({
   },
   onLoad(e) {
     var t = this;
-    if (t.data.date_1 == '') {
-      var now = new Date();
-      var now_1 = new Date(now.getTime() - 7*24*60*60*1000);
-      t.setData({ "date_1": now_1.getFullYear() + "-" + (now_1.getMonth() + 1) + "-" + (now_1.getDate()) });
-      t.setData({ "date_2": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
-    }
     //判定是否登录
     dd.getStorage({
       key: 'login',
@@ -79,28 +46,23 @@ Page({
         });
         //载入列表
         dd.httpRequest({
-          url: "http://47.114.96.139:8888/ActBack.ashx",
+          url: "https://www.sportfox.cn/Task/ActBack.ashx",
           method: 'POST',
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            date_start: t.data.date_1,
-            date_end: t.data.date_2 + " 23:59:59",
-            id_acc: e.id_acc,
-            name_space: "ProjectM.ProjectDiaryListLook.BindinggridControl3"
+            dept_ding: e.dept_ding,
+            name_space: "ProjectM.ProjectDiaryListLook.BindinggridControl2"
           },
           dataType: 'json',
           success: (res2) => {
-            //dd.alert({ content: JSON.stringify(res2) });
+            //dd.alert({content: "51" + JSON.stringify(res2.data)});
             var d_1 = res2.data.json_ar_0;
             var d_2 = [];
             for (var i = 0; i < d_1.length; i++) {
               var d = d_1[i];
               var title_1 = "";
-              title_1 += "[日志时间]" + d.date_diary.substr(0, 10);
-              title_1 += "\n[填写者]" + d.pet_name;
-              title_1 += "\n[填写时间]" + d.date_make.substr(5,11);
-              title_1 += "\n[项目名称]" + d.name_project;
+              title_1 += "[人员]" + d.pet_name;
               var title_2 = "";
 
               var d = {
@@ -108,7 +70,7 @@ Page({
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
                 , extra: "查看详情"
                 , textMode: "wrap"
-                , no_ls: d_1[i].no_ls
+                , id: d.id
                 , title_2: title_2
               };
               d_2.push(d);
