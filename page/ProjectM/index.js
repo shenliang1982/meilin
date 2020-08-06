@@ -31,7 +31,7 @@ Page({
           icon: '/image/form.png',
           title: '查看',
           entitle: 'Diary',
-          page: 'ProjectDiaryListLook',
+          page: 'ProjectDiaryListLookDept',
         },
       ],
     },

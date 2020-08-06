@@ -5,5 +5,5 @@
   <button style="margin-left: 5px;" type="ghost" size="mini" onTap="newdate_2">{{date_2}}</button>
 </view>
 <view>
-    <template is="List" data={{...listData}}></template>
+    <template is="List" data={{...listData}} />
 </view>

@@ -35,7 +35,7 @@ Page({
         });
         //载入列表
         dd.httpRequest({
-          url: "https://www.sportfox.cn/Task/ActBack.ashx",
+          url: "http://47.114.96.139:8888/ActBack.ashx",
           method: 'POST',
           data: {
             username: t.data.login.username,
@@ -50,7 +50,7 @@ Page({
             for (var i = 0; i < d_1.length; i++) {
               var d = d_1[i];
               var title_1 = "";
-              title_1 += "[部门]" + d.dept_ding;
+              title_1 += d.dept_ding;
               var title_2 = "";
 
               var d = {
@@ -59,6 +59,7 @@ Page({
                 , extra: "查看详情"
                 , textMode: "wrap"
                 , title_2: title_2
+                , dept_ding: d.dept_ding
               };
               d_2.push(d);
             }

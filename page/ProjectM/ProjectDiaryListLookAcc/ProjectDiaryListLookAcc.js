@@ -46,7 +46,7 @@ Page({
         });
         //载入列表
         dd.httpRequest({
-          url: "https://www.sportfox.cn/Task/ActBack.ashx",
+          url: "http://47.114.96.139:8888/ActBack.ashx",
           method: 'POST',
           data: {
             username: t.data.login.username,
@@ -62,7 +62,7 @@ Page({
             for (var i = 0; i < d_1.length; i++) {
               var d = d_1[i];
               var title_1 = "";
-              title_1 += "[人员]" + d.pet_name;
+              title_1 += d.pet_name;
               var title_2 = "";
 
               var d = {
