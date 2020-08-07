@@ -14,8 +14,9 @@ Page({
     },
     date_1: '',
     date_2: '',
-    id_acc: '',
+    phone: '',
     date_1_more: '',
+    index: 0,
   },
   newdate_1() {
     var t = this;
@@ -43,6 +44,7 @@ Page({
   },
   handleListItemTap(e) {
     var d = this.data.listData.data[e.currentTarget.dataset.index];
+    this.data.index = e.currentTarget.dataset.index;
     dd.navigateTo({
       url: '../ProjectDiaryLook/ProjectDiaryLook?no_ls=' + d.no_ls
     });
@@ -54,7 +56,35 @@ Page({
       success: function (res) {
         if (res.data) {
           dd.setStorage({ key: 'is_on_show_refresh', data: false });
-          t.onLoad();
+
+          //载入等待
+          dd.showLoading({
+            content: '加载中...',
+            delay: '1000',
+          });
+          dd.httpRequest({
+            url: "http://47.114.96.139:8888/ActBack.ashx",
+            method: 'POST',
+            data: {
+              username: t.data.login.username,
+              code_login: t.data.login.code_login,
+              no_project_diary: t.data.listData.data[t.data.index].no_ls,
+              name_space: "ProjectM.ProjectDiaryListLook.LoadBack"
+            },
+            dataType: 'json',
+            success: (res2) => {
+              //dd.alert({ content: res2.data.diary });
+              //t.data.listData.data[t.data.index].title = res2.data.diary;
+              var aaa = "listData.data[" + t.data.index + "].title";
+              t.setData({ [aaa]: res2.data.diary });
+            },
+            fail: (res2) => {
+              dd.alert({ content: JSON.stringify(res2) });
+            },
+            complete: (res2) => {
+              dd.hideLoading();
+            },
+          });
         }
       }
     });
@@ -66,7 +96,7 @@ Page({
       var now_1 = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
       t.setData({ "date_1": now_1.getFullYear() + "-" + (now_1.getMonth() + 1) + "-" + (now_1.getDate()) });
       t.setData({ "date_2": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
-      t.setData({ "id_acc": e.id_acc });
+      t.setData({ "phone": e.phone });
     }
     //判定是否登录
     dd.getStorage({
@@ -88,7 +118,7 @@ Page({
             code_login: t.data.login.code_login,
             date_start: t.data.date_1,
             date_end: t.data.date_2 + " 23:59:59",
-            id_acc: t.data.id_acc,
+            phone: t.data.phone,
             name_space: "ProjectM.ProjectDiaryListLook.LoadCardView"
           },
           dataType: 'json',
@@ -137,7 +167,7 @@ Page({
     var date_13 = new Date(date_11.getTime() - 1 * 24 * 60 * 60 * 1000);
     var date_start = date_12.getFullYear() + "-" + (date_12.getMonth() + 1) + "-" + (date_12.getDate());
     var date_end = date_13.getFullYear() + "-" + (date_13.getMonth() + 1) + "-" + (date_13.getDate());
-    t.setData({ "date_1_more":  date_start});
+    t.setData({ "date_1_more": date_start });
     dd.httpRequest({
       url: "http://47.114.96.139:8888/ActBack.ashx",
       method: 'POST',
@@ -146,7 +176,7 @@ Page({
         code_login: t.data.login.code_login,
         date_start: date_start,
         date_end: date_end + " 23:59:59",
-        id_acc: t.data.id_acc,
+        phone: t.data.phone,
         name_space: "ProjectM.ProjectDiaryListLook.LoadCardView"
       },
       dataType: 'json',

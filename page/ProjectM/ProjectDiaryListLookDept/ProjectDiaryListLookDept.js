@@ -15,10 +15,9 @@ Page({
     date_2: '',
   },
   handleListItemTap(e) {
-    var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
     dd.navigateTo({
-      url: '../ProjectDiaryListLookAcc/ProjectDiaryListLookAcc?dept_ding=' + d.dept_ding
+      url: '../ProjectDiaryListLookAcc/ProjectDiaryListLookAcc?department_id=' + d.department_id
     });
   },
   onLoad() {
@@ -59,7 +58,7 @@ Page({
                 , extra: "查看详情"
                 , textMode: "wrap"
                 , title_2: title_2
-                , dept_ding: d.dept_ding
+                , department_id: d.department_id
               };
               d_2.push(d);
             }

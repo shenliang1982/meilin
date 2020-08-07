@@ -52,6 +52,7 @@ Page({
     if (now.getFullYear() == date_make.getFullYear()
       && now.getMonth() == date_make.getMonth()
       && now.getDate() == date_make.getDate()
+      && d.back == ""
     )
       dd.navigateTo({
         url: '../ProjectDiaryEdit/ProjectDiaryEdit?no_ls=' + d.no_ls
@@ -123,7 +124,8 @@ Page({
                 , extra: "查看详情"
                 , textMode: "wrap"
                 , no_ls: d_1[i].no_ls
-                , date_make: d_1[i].date_make
+                , date_make: d.date_make
+                , back: d.back
                 , title_2: title_2
               };
               d_2.push(d);

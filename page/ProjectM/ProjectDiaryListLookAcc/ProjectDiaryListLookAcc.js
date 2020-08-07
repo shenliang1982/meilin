@@ -14,10 +14,9 @@ Page({
     },
   },
   handleListItemTap(e) {
-    var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
     dd.navigateTo({
-      url: '../ProjectDiaryListLook/ProjectDiaryListLook?id_acc=' + d.id
+      url: '../ProjectDiaryListLook/ProjectDiaryListLook?phone=' + d.phone
     });
   },
   onShow() {
@@ -51,7 +50,7 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            dept_ding: e.dept_ding,
+            department_id: e.department_id,
             name_space: "ProjectM.ProjectDiaryListLook.BindinggridControl2"
           },
           dataType: 'json',
@@ -70,7 +69,7 @@ Page({
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
                 , extra: "查看详情"
                 , textMode: "wrap"
-                , id: d.id
+                , phone: d.phone
                 , title_2: title_2
               };
               d_2.push(d);
