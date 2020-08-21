@@ -21,22 +21,22 @@ Page({
           icon: '/image/view.png',
           title: '项目',
           entitle: 'Project',
-          page: 'ProjectList',
+          page: 'ProjectM/ProjectList/ProjectList',
         }, {
           icon: '/image/basic.png',
           title: '日志',
           entitle: 'Diary',
-          page: 'ProjectDiaryList',
+          page: 'ProjectM/ProjectDiaryList/ProjectDiaryList',
         }, {
           icon: '/image/form.png',
           title: '查看',
           entitle: 'Diary',
-          page: 'ProjectDiaryListLookDept',
+          page: 'ProjectM/ProjectDiaryListLookDept/ProjectDiaryListLookDept',
         }, {
           icon: '/image/icon_biz_HL.png',
           title: '入库',
           entitle: 'StorageIn',
-          page: '../StorageWork/DingStorageIn',
+          page: 'StorageWork/DingStorageIn/DingStorageIn',
         },
       ],
     },
@@ -113,7 +113,7 @@ Page({
   onChildItemTap(e) {
     const { page } = e.currentTarget.dataset;
     dd.navigateTo({
-      url: `${page}/${page}`,
+      url: `${page}`,
     });
   },
   onModalCloseTap() {

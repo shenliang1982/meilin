@@ -1,6 +1,6 @@
 {
   "pages": [
-    "page/ProjectM/index",
+    "page/index",
     "page/ProjectM/ProjectList/ProjectList",
     "page/ProjectM/ProjectEdit/ProjectEdit",
     "page/ProjectM/ProjectListDiary/ProjectListDiary",
@@ -27,7 +27,7 @@
     "backgroundColor": "#F5F5F9",
     "items": [
       {
-        "pagePath": "page/ProjectM/index",
+        "pagePath": "page/index",
         "icon": "image/icon_component.png",
         "activeIcon": "image/icon_component_HL.png",
         "name": "梅霖项目"
