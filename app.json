@@ -10,7 +10,10 @@
     "page/ProjectM/ProjectDiaryListLook/ProjectDiaryListLook",
     "page/ProjectM/ProjectLook/ProjectLook",
     "page/ProjectM/ProjectDiaryListLookDept/ProjectDiaryListLookDept",
-    "page/ProjectM/ProjectDiaryListLookAcc/ProjectDiaryListLookAcc"
+    "page/ProjectM/ProjectDiaryListLookAcc/ProjectDiaryListLookAcc",
+    "page/StorageWork/DingStorageIn/DingStorageIn",
+    "page/StorageWork/DingStorageInQty/DingStorageInQty",
+    "page/StorageWork/DingStorageInAdd/DingStorageInAdd"
   ],
   "window": {
     "defaultTitle": "梅霖ERP",
