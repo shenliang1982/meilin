@@ -32,6 +32,11 @@ Page({
           title: '查看',
           entitle: 'Diary',
           page: 'ProjectDiaryListLookDept',
+        }, {
+          icon: '/image/icon_biz_HL.png',
+          title: '入库',
+          entitle: 'StorageIn',
+          page: '../StorageWork/DingStorageIn',
         },
       ],
     },

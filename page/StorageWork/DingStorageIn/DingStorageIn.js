@@ -50,7 +50,9 @@ Page({
     });
   },
   add_enter() {
-    dd.alert({ content: "功能未完成" });
+    dd.navigateTo({
+      url: '../DingStorageInAdd/DingStorageInAdd'
+    });
   },
   handleListItemTap(e) {
     var t = this;
