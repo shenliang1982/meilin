@@ -28,7 +28,7 @@
       <view class="page-section">
         <view class="page-section-title">日志</view>
         <view class="page-section-demo">
-          <textarea auto-height name="diary" value="{{data_1.diary}}" maxlength="1000" />
+          <textarea auto-height name="diary" value="{{data_1.diary}}" />
         </view>
         <view class="extra-info">
           <button type="ghost" size="mini" onTap="selectModel" loading>模板</button>
