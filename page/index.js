@@ -20,22 +20,27 @@ Page({
         {
           icon: '/image/view.png',
           title: '项目',
-          entitle: 'Project',
+          entitle: '梅霖/项目',
           page: 'ProjectM/ProjectList/ProjectList',
         }, {
           icon: '/image/basic.png',
           title: '日志',
-          entitle: 'Diary',
+          entitle: '梅霖/日志',
           page: 'ProjectM/ProjectDiaryList/ProjectDiaryList',
         }, {
           icon: '/image/form.png',
           title: '查看',
-          entitle: 'Diary',
+          entitle: '梅霖/日志查看',
           page: 'ProjectM/ProjectDiaryListLookDept/ProjectDiaryListLookDept',
+        }, {
+          icon: '/image/biz_errorview.png',
+          title: '昨日日志',
+          entitle: '项目报表/昨日情况',
+          page: 'ProjectM/DiaryToday/DiaryToday',
         }, {
           icon: '/image/icon_biz_HL.png',
           title: '入库',
-          entitle: 'StorageIn',
+          entitle: '采购入库/扫描入库',
           page: 'StorageWork/DingStorageIn/DingStorageIn',
         },
       ],
@@ -64,8 +69,8 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            name_menu_1: "梅霖",
-            name_space: "Purview.MenuLeft.HideMenu2"
+            name_proj: "MeiLin",
+            name_space: "Purview.MenuLeft.HideMenuDing"
           },
           dataType: 'json',
           success: (res2) => {
@@ -73,7 +78,7 @@ Page({
             var d_2 = t.data.arr.list;
             for (var i = 0; i < d_1.length; i++) {
               for (var j = 0; j < d_2.length; j++) {
-                if (d_2[j].title == d_1[i].name_menu_2) {
+                if (d_2[j].entitle == d_1[i].entitle) {
                   d_2.splice(j, 1);
                   break;
                 }

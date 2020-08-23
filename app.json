@@ -13,7 +13,8 @@
     "page/ProjectM/ProjectDiaryListLookAcc/ProjectDiaryListLookAcc",
     "page/StorageWork/DingStorageIn/DingStorageIn",
     "page/StorageWork/DingStorageInQty/DingStorageInQty",
-    "page/StorageWork/DingStorageInAdd/DingStorageInAdd"
+    "page/StorageWork/DingStorageInAdd/DingStorageInAdd",
+    "page/ProjectM/DiaryToday/DiaryToday"
   ],
   "window": {
     "defaultTitle": "梅霖ERP",

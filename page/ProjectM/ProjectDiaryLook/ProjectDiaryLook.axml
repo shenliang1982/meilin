@@ -29,14 +29,14 @@
       <view class="page-section">
         <view class="page-section-title">日志</view>
         <view class="page-section-demo">
-          <textarea auto-height name="diary" disabled="disabled" value="{{data_1.diary}}" />
+          <textarea auto-height name="diary" disabled="disabled" value="{{data_1.diary}}" maxlength="10000" />
         </view>
       </view>
       <view class="form-line" />
       <view class="page-section">
         <view class="page-section-title">回复</view>
         <view class="page-section-demo">
-          <textarea auto-height name="back" disabled="disabled" value="{{data_1.back}}" />
+          <textarea auto-height name="back" disabled="disabled" value="{{data_1.back}}" maxlength="10000" />
         </view>
       </view>
       <view class="form-line" />
