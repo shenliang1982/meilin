@@ -43,7 +43,7 @@
       <view class="page-section">
         <view class="page-section-title">新增回复</view>
         <view class="page-section-demo">
-          <textarea auto-height name="back_add" value="{{data_1.back_add}}" />
+          <textarea auto-height name="back_add" value="{{data_1.back_add}}" maxlength="10000" />
         </view>
       </view>
       <view class="form-line" />

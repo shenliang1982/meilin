@@ -113,7 +113,7 @@ Page({
               var d = {
                 title: title_1
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
-                , extra: "查看详情"
+                , extra: "改入库数"
                 , textMode: "wrap"
                 , no_body: d.no_body
                 , title_2: title_2
