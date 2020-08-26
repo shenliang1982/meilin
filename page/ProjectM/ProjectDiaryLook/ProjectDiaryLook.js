@@ -53,10 +53,6 @@ Page({
       delay: '1000',
     });
     //提交数据
-    var p_in = {
-      no_ls: t.data.data_1.no_ls,
-      json_ar_0: [t.data.data_1]
-    };
     dd.httpRequest({
       url: "http://47.114.96.139:8888/ActBack.ashx",
       method: 'POST',
@@ -65,6 +61,7 @@ Page({
         code_login: t.data.login.code_login,
         no_project_diary: t.data.data_1.no_ls,
         back_add: e.detail.value.back_add,
+        is_answer_do: (e.detail.value.is_answer_do.length > 0),
         name_space: "ProjectM.ProjectDiaryLook.SaveBack",
         //json_in: JSON.stringify(p_in),
       },

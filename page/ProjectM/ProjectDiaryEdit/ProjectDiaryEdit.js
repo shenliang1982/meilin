@@ -134,6 +134,7 @@ Page({
     t.data.data_1.keyword = e.detail.value.keyword;
     t.data.data_1.diary = e.detail.value.diary;
     t.data.data_1.date_diary = e.detail.value.date_diary;
+    t.data.data_1.is_answer_need = e.detail.value.is_answer_need;
     //载入等待
     dd.showLoading({
       content: '加载中...',

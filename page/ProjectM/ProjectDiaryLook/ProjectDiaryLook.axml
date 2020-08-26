@@ -40,6 +40,26 @@
         </view>
       </view>
       <view class="form-line" />
+      
+      <view class="form-row">
+        <view class="form-row-label">需要解答</view>
+        <view class="page-section-demo">
+          <checkbox-group name="is_answer_need">
+            <label><checkbox value="is_answer_need" disabled="disabled" checked="{{data_1.is_answer_need}}" />需要解答</label>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class="form-line" />
+      
+      <view class="form-row">
+        <view class="form-row-label">我已解答</view>
+        <view class="page-section-demo">
+          <checkbox-group name="is_answer_do">
+            <label><checkbox value="is_answer_do" checked="{{data_1.is_answer_do}}" />我已解答</label>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class="form-line" />
       <view class="page-section">
         <view class="page-section-title">新增回复</view>
         <view class="page-section-demo">
