@@ -14,7 +14,9 @@
     "page/StorageWork/DingStorageIn/DingStorageIn",
     "page/StorageWork/DingStorageInQty/DingStorageInQty",
     "page/StorageWork/DingStorageInAdd/DingStorageInAdd",
-    "page/ProjectM/DiaryToday/DiaryToday"
+    "page/ProjectM/DiaryToday/DiaryToday",
+    "page/StorageWork/PurchaseOrderListAdd/PurchaseOrderListAdd",
+    "page/StorageWork/PurchaseOrderListPic/PurchaseOrderListPic"
   ],
   "window": {
     "defaultTitle": "梅霖ERP",
