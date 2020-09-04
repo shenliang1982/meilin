@@ -13,7 +13,7 @@ Page({
       count: 10,
       success: (res) => {
         var qty_sort = 0;
-        if (t.data.pic_list.length == 0) qty_sort = t.data.pic_list[t.data.pic_list.length - 1].qty_sort;
+        if (t.data.pic_list.length > 0) qty_sort = t.data.pic_list[t.data.pic_list.length - 1].qty_sort;
         for (var i = 0; i < res.filePaths.length; i++) {
           qty_sort++;
           //载入等待
@@ -33,10 +33,8 @@ Page({
             fileType: 'image',
             fileName: 'file',
             filePath: res.filePaths[i],
-            success: (res) => {
-              dd.alert({
-                content: '上传成功'
-              });
+            success: (res2) => {
+              t.onLoad();
             },
           });
         }
@@ -75,7 +73,7 @@ Page({
     var t = this;
     var qty_sort = e.target.targetDataset.name;
     dd.showActionSheet({
-      title: d.title_2,
+      title: qty_sort,
       items: ['换图', '删除'],
       //cancelButtonText: '取消',
       success: (res) => {
@@ -173,7 +171,6 @@ Page({
           dataType: 'json',
           success: (res2) => {
             t.setData({ "pic_list": res2.data.json_ar_0 });
-            t.setData({ "no_purchase_1": e.no_purchase_1 });
           },
           fail: (res2) => {
             dd.alert({ content: JSON.stringify(res2) });
