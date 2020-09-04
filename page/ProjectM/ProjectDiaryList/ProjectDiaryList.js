@@ -47,13 +47,7 @@ Page({
   handleListItemTap(e) {
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
-    var date_make = new Date(d.date_make);
-    var now = new Date();
-    if (now.getFullYear() == date_make.getFullYear()
-      && now.getMonth() == date_make.getMonth()
-      && now.getDate() == date_make.getDate()
-      && d.back == ""
-    )
+    if (d.is_edit)
       dd.navigateTo({
         url: '../ProjectDiaryEdit/ProjectDiaryEdit?no_ls=' + d.no_ls
       });
@@ -123,8 +117,8 @@ Page({
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
                 , extra: "查看详情"
                 , textMode: "wrap"
-                , no_ls: d_1[i].no_ls
-                , date_make: d.date_make
+                , no_ls: d.no_ls
+                , is_edit: d.is_edit
                 , back: d.back
                 , title_2: title_2
               };

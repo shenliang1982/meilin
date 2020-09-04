@@ -5,7 +5,7 @@ Page({
   data: {
     listData: {
       onItemTap: 'handleListItemTap',
-      header: 'list1',
+      //header: '采购',
       data: []
     },
     login: {
@@ -70,45 +70,8 @@ Page({
   handleListItemTap(e) {
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
-    dd.showActionSheet({
-      title: d.title_2,
-      items: ['上图', '删除'],
-      //cancelButtonText: '取消',
-      success: (res) => {
-        if (res.index == 0) {
-          dd.navigateTo({
-            url: '../PurchaseOrderListPic/PurchaseOrderListPic?no_purchase_1=' + d.no_bill
-          });
-        }
-        else if (res.index == 1) {
-          //载入等待
-          dd.showLoading({
-            content: '加载中...',
-            delay: '1000',
-          });
-          //载入列表
-          dd.httpRequest({
-            url: "http://47.114.96.139:8888/ActBack.ashx",
-            method: 'POST',
-            data: {
-              username: t.data.login.username,
-              code_login: t.data.login.code_login,
-              no_bill: d.no_bill,
-              name_space: "StorageWork.PurchaseOrderListAdd.Delete"
-            },
-            dataType: 'json',
-            success: (res2) => {
-              t.onLoad();
-            },
-            fail: (res2) => {
-              dd.alert({ content: JSON.stringify(res2) });
-            },
-            complete: (res2) => {
-              dd.hideLoading();
-            },
-          });
-        }
-      },
+    dd.navigateTo({
+      url: '../PurchaseOrderListPic/PurchaseOrderListPic?no_purchase_1=' + d.no_bill
     });
   },
   onShow() {

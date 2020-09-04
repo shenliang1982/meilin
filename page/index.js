@@ -38,6 +38,11 @@ Page({
           entitle: '项目报表/昨日情况',
           page: 'ProjectM/DiaryToday/DiaryToday',
         }, {
+          icon: '/image/icon_component_HL.png',
+          title: '采购',
+          entitle: '采购入库/采购图片',
+          page: 'StorageWork/PurchaseOrderListAdd/PurchaseOrderListAdd',
+        },{
           icon: '/image/icon_biz_HL.png',
           title: '入库',
           entitle: '采购入库/扫描入库',
@@ -88,7 +93,7 @@ Page({
             t.setData({ "arr.list": d_2 });
           },
           fail: (res2) => {
-            dd.alert({ content: JSON.stringify(res2) });
+            dd.alert({ content: "91" + JSON.stringify(res2) });
           },
           complete: (res2) => {
             dd.hideLoading();
