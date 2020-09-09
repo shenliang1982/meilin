@@ -39,9 +39,19 @@ Page({
           page: 'ProjectM/DiaryToday/DiaryToday',
         }, {
           icon: '/image/icon_component_HL.png',
-          title: '采购',
+          title: '采购图片',
           entitle: '采购入库/采购图片',
-          page: 'StorageWork/PurchaseOrderListAdd/PurchaseOrderListAdd',
+          page: 'StorageWork/PurchaseList1Add/PurchaseList1Add',
+        },{
+          icon: '/image/icon_component_HL.png',
+          title: '采购审核',
+          entitle: '采购入库/采购审核',
+          page: 'StorageWork/PurchaseList3Check/PurchaseList3Check',
+        },{
+          icon: '/image/icon_component_HL.png',
+          title: '采购抄送',
+          entitle: '采购入库/采购抄送',
+          page: 'StorageWork/PurchaseList4Manage/PurchaseList4Manage',
         },{
           icon: '/image/icon_biz_HL.png',
           title: '入库',
