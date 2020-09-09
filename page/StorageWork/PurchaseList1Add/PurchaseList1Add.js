@@ -29,6 +29,49 @@ Page({
       data: {
         username: t.data.login.username,
         code_login: t.data.login.code_login,
+        name_space: "StorageWork.PurchaseList1Add.BindinggridControl2"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        var d_1 = res2.data.json_ar_0;
+        var d_2 = [];
+        for (var i = 0; i < d_1.length; i++) {
+          var d = d_1[i];
+          d_2.push(d.name_warehouse);
+        }
+
+        dd.showActionSheet({
+          title: "选择仓库",
+          items: d_2,
+          //cancelButtonText: '取消',
+          success: (res) => {
+            t.add_2(d_1[res.index].no_ls);
+          },
+        });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: () => {
+        dd.hideLoading();
+      },
+    });
+  },
+  add_2(no_warehouse) {
+    var t = this;
+    //载入等待
+    dd.showLoading({
+      content: '加载中...',
+      delay: '1000',
+    });
+    //载入列表
+    dd.httpRequest({
+      url: "http://47.114.96.139:8888/ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_warehouse: no_warehouse,
         name_space: "StorageWork.PurchaseList1Add.FastAdd"
       },
       dataType: 'json',
@@ -125,12 +168,14 @@ Page({
               title_1 += "[采购单号]" + d.no_bill;
               title_1 += "\n[采购日期]" + d.date_bill;
               title_1 += "\n[仓库]" + d.name_warehouse;
+              title_1 += "\n[审核]" + d.is_check;
               var title_2 = "";
 
               var d = {
                 title: title_1
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
-                , extra: "查看详情"
+                , arrow: 'horizontal'
+                //, extra: "查看详情"
                 , textMode: "wrap"
                 , no_bill: d.no_bill
                 , title_2: title_2
