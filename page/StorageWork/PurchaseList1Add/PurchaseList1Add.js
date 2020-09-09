@@ -29,7 +29,7 @@ Page({
       data: {
         username: t.data.login.username,
         code_login: t.data.login.code_login,
-        name_space: "StorageWork.PurchaseOrderListAdd.FastAdd"
+        name_space: "StorageWork.PurchaseList1Add.FastAdd"
       },
       dataType: 'json',
       success: (res2) => {
@@ -71,7 +71,7 @@ Page({
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
     dd.navigateTo({
-      url: '../PurchaseOrderListPic/PurchaseOrderListPic?no_purchase_1=' + d.no_bill
+      url: '../PurchasePic/PurchasePic?no_purchase_1=' + d.no_bill
     });
   },
   onShow() {
@@ -112,7 +112,7 @@ Page({
             code_login: t.data.login.code_login,
             date_start: t.data.date_1,
             date_end: t.data.date_2 + " 23:59:59",
-            name_space: "StorageWork.PurchaseOrderListAdd.BindinggridControl1"
+            name_space: "StorageWork.PurchaseList1Add.BindinggridControl1"
           },
           dataType: 'json',
           success: (res2) => {
