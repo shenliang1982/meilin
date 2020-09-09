@@ -55,7 +55,7 @@ Page({
         username: t.data.login.username,
         code_login: t.data.login.code_login,
         no_bill: t.data.no_purchase_1,
-        name_space: "StorageWork.PurchaseOrderListAdd.Delete"
+        name_space: "StorageWork.PurchaseList1Add.Delete"
       },
       dataType: 'json',
       success: (res2) => {
@@ -128,7 +128,7 @@ Page({
               name_column: "pic",
               no_key: t.data.no_purchase_1,
               qty_sort: qty_sort,
-              name_space: "StorageWork.PurchaseOrderListPic.Delete"
+              name_space: "StorageWork.PurchasePic.Delete"
             },
             dataType: 'json',
             success: (res2) => {
@@ -166,7 +166,7 @@ Page({
             username: t.data.login.username,
             code_login: t.data.login.code_login,
             no_purchase_1: t.data.no_purchase_1,
-            name_space: "StorageWork.PurchaseOrderListPic.BindinggridControl1"
+            name_space: "StorageWork.PurchasePic.BindinggridControl1"
           },
           dataType: 'json',
           success: (res2) => {
