@@ -15,8 +15,6 @@
     "page/StorageWork/DingStorageInQty/DingStorageInQty",
     "page/StorageWork/DingStorageInAdd/DingStorageInAdd",
     "page/ProjectM/DiaryToday/DiaryToday",
-    "page/StorageWork/PurchaseOrderListAdd/PurchaseOrderListAdd",
-    "page/StorageWork/PurchaseOrderListPic/PurchaseOrderListPic",
     "page/StorageWork/PurchaseList1Add/PurchaseList1Add",
     "page/StorageWork/PurchaseList3Check/PurchaseList3Check",
     "page/StorageWork/PurchaseList4Manage/PurchaseList4Manage",

@@ -55,7 +55,7 @@ Page({
         if (res.index == 0) {
           //提交
           dd.httpRequest({
-            url: "https://www.sportfox.cn/Task/ActBack.ashx",
+            url: "http://47.114.96.139:8888/ActBack.ashx",
             method: 'POST',
             data: {
               username: t.data.login.username,
@@ -124,7 +124,7 @@ Page({
         });
         //载入列表
         dd.httpRequest({
-          url: "https://www.sportfox.cn/Task/ActBack.ashx",
+          url: "http://47.114.96.139:8888/ActBack.ashx",
           method: 'POST',
           data: {
             username: t.data.login.username,
