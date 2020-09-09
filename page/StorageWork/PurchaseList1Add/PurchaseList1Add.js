@@ -124,6 +124,7 @@ Page({
               var title_1 = "";
               title_1 += "[采购单号]" + d.no_bill;
               title_1 += "\n[采购日期]" + d.date_bill;
+              title_1 += "\n[仓库]" + d.name_warehouse;
               var title_2 = "";
 
               var d = {

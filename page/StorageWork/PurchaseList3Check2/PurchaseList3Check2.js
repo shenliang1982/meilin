@@ -15,10 +15,62 @@ Page({
     date_1: '',
     date_2: '',
   },
-  add() {
-    dd.navigateTo({
-      url: '../ProjectDiaryEdit/ProjectDiaryEdit'
-    });
+  check() {
+        //载入等待
+        dd.showLoading({
+          content: '加载中...',
+          delay: '1000',
+        });
+        //载入列表
+        dd.httpRequest({
+          url: "https://www.sportfox.cn/Task/ActBack.ashx",
+          method: 'POST',
+          data: {
+            username: t.data.login.username,
+            code_login: t.data.login.code_login,
+            date_start: t.data.date_1,
+            date_end: t.data.date_2 + " 23:59:59",
+            name_space: "StorageWork.PurchaseList3Check.Check"
+          },
+          dataType: 'json',
+          success: (res2) => {
+            //dd.alert({content: "51" + JSON.stringify(res2.data)});
+            var d_1 = res2.data.json_ar_0;
+            var d_2 = [];
+            for (var i = 0; i < d_1.length; i++) {
+              var d = d_1[i];
+              var title_1 = "";
+              title_1 += "[名称]" + d.name_task;
+              title_1 += "\n[截止]" + d.date_end;
+              title_1 += "\n[地点]" + d.addr;
+              var title_2 = "";
+              if (d.name_task != "") title_2 += " [名称]" + d.name_task;
+              if (d.date_end != "") title_2 += " [截止]" + d.date_end;
+              if (d.addr != "") title_2 += " [地点]" + d.addr;
+              if (d.name_task_flow != "") title_2 += " [流程]" + d.name_task_flow;
+              if (d.name_project != "") title_2 += " [项目]" + d.name_project;
+              if (d.qty_reward != "") title_2 += " [积分]" + d.qty_reward;
+              if (d.remark_task != "") title_2 += " [备注]" + d.remark_task;
+
+              var d = {
+                title: title_1
+                , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
+                , extra: "查看详情"
+                , textMode: "wrap"
+                , no_ls: d.no_ls
+                , title_2: title_2
+              };
+              d_2.push(d);
+            }
+            t.setData({ "listData.data": d_2 });
+          },
+          fail: (res2) => {
+            dd.alert({content: JSON.stringify(res2)});
+          },
+          complete: (res2) => {
+            dd.hideLoading();
+          },
+        });
   },
   newdate_1() {
     var t = this;
