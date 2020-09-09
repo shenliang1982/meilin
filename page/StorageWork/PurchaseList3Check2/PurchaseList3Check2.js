@@ -15,6 +15,7 @@ Page({
     no_bill: "",
   },
   check() {
+    var t = this;
     //载入等待
     dd.showLoading({
       content: '加载中...',
@@ -61,7 +62,7 @@ Page({
   },
   onLoad(e) {
     var t = this;
-    if (t.data.no_bill == "") t.setData({ "no_purchase_1": e.no_bill });
+    if (t.data.no_bill == "") t.setData({ "no_bill": e.no_bill });
     //判定是否登录
     dd.getStorage({
       key: 'login',
@@ -79,9 +80,8 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            date_start: t.data.date_1,
-            date_end: t.data.date_2 + " 23:59:59",
-            name_space: "Task.TaskListAct.BindinggridControl1"
+            no_bill: t.data.no_bill,
+            name_space: "StorageWork.PurchaseList3Check.BindinggridControl2"
           },
           dataType: 'json',
           success: (res2) => {
@@ -100,7 +100,7 @@ Page({
               var d = {
                 title: title_1
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
-                , extra: "查看详情"
+                //, extra: "查看详情"
                 , textMode: "wrap"
                 , title_2: title_2
               };

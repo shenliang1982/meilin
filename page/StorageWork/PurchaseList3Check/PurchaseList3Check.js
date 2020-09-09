@@ -102,9 +102,9 @@ Page({
               var d = {
                 title: title_1
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
-                , extra: "查看详情"
+                //, extra: "详情"
                 , textMode: "wrap"
-                , no_ls: d.no_ls
+                , no_bill: d.no_bill
                 , title_2: title_2
               };
               d_2.push(d);

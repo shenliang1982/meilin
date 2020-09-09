@@ -1,10 +1,6 @@
 <import src="/page/biz/components/list/index.axml" />
 
-<view style="display: flex; justify-content: space-between;">
-  <view>
-  <button type="ghost" size="mini" onTap="newdate_1">{{date_1}}</button>
-  <button style="margin-left: 5px;" type="ghost" size="mini" onTap="newdate_2">{{date_2}}</button>
-  </view>
+<view>
   <button type="ghost" size="mini" onTap="check" loading>审核</button>
 </view>
 <view>
