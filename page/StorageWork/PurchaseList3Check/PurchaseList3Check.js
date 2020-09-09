@@ -102,15 +102,16 @@ Page({
               var d = {
                 title: title_1
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
+                , arrow: 'horizontal'
                 //, extra: "详情"
                 , textMode: "wrap"
                 , no_bill: d.no_bill
                 , title_2: title_2
-              };
-              d_2.push(d);
-            }
+            };
+            d_2.push(d);
+          }
             t.setData({ "listData.data": d_2 });
-          },
+        },
           fail: (res2) => {
             dd.alert({ content: JSON.stringify(res2) });
           },
@@ -118,7 +119,7 @@ Page({
             dd.hideLoading();
           },
         });
-      }
-    });
+  }
+});
   }
 })

@@ -4,92 +4,47 @@ Page({
   ...list,
   data: {
     listData: {
-      onItemTap: 'handleListItemTap',
-      header: 'list1',
+      //onItemTap: 'handleListItemTap',
+      //header: 'list1',
       data: []
     },
     login: {
       username: "",
       code_login: ""
     },
-    date_1: '',
-    date_2: '',
+    no_bill: "",
   },
-  add() {
-    dd.navigateTo({
-      url: '../ProjectDiaryEdit/ProjectDiaryEdit'
-    });
-  },
-  newdate_1() {
+  check() {
     var t = this;
-    dd.datePicker({
-      currentDate: t.data.date_1,
-      startDate: '2020-1-1',
-      endDate: '2030-1-1',
-      success: (res) => {
-        t.setData({ "date_1": res.date });
-        t.onLoad();
+    //载入等待
+    dd.showLoading({
+      content: '加载中...',
+      delay: '1000',
+    });
+    //载入列表
+    dd.httpRequest({
+      url: "http://47.114.96.139:8888/ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_bill: t.data.no_bill,
+        name_space: "StorageWork.PurchaseList4Manage.Check"
       },
-    });
-  },
-  newdate_2() {
-    var t = this;
-    dd.datePicker({
-      currentDate: t.data.date_2,
-      startDate: '2020-1-1',
-      endDate: '2030-1-1',
-      success: (res) => {
-        t.setData({ "date_2": res.date });
-        t.onLoad();
+      dataType: 'json',
+      success: (res2) => {
+        if (res2.data.is_ok) {
+          dd.setStorage({ key: 'is_on_show_refresh', data: true });
+          dd.navigateBack();
+        }
+        else
+          dd.alert({ content: JSON.stringify(res2.data.error) });
       },
-    });
-  },
-  handleListItemTap(e) {
-    var t = this;
-    var d = this.data.listData.data[e.currentTarget.dataset.index];
-    dd.showActionSheet({
-      title: d.title_2,
-      items: ['完成', '达成', '放弃', '搁置'],
-      //cancelButtonText: '取消',
-      success: (res) => {
-        if (res.index == 0) {
-          //提交
-          dd.httpRequest({
-            url: "http://47.114.96.139:8888/ActBack.ashx",
-            method: 'POST',
-            data: {
-              username: t.data.login.username,
-              code_login: t.data.login.code_login,
-              no_ls: d.no_ls,
-              name_space: "ProjectLinkUse.TaskListAct.FastYes"
-            },
-            dataType: 'json',
-            success: (res2) => {
-              t.onLoad();
-            },
-            fail: (res2) => {
-              dd.alert({content: JSON.stringify(res2)});
-            },
-            complete: (res2) => {
-              dd.hideLoading();
-            },
-          });
-        }
-        else if (res.index == 1) {
-          dd.navigateTo({
-            url: '../TaskAnswerYes/TaskAnswerYes?no_ls=' + d.no_ls
-          });
-        }
-        else if (res.index == 2) {
-          dd.navigateTo({
-            url: '../TaskAnswerYes/TaskAnswerNo?no_ls=' + d.no_ls
-          });
-        }
-        else if (res.index == 3) {
-          dd.navigateTo({
-            url: '../TaskAnswerYes/TaskAnswerNext?no_ls=' + d.no_ls
-          });
-        }
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: (res2) => {
+        dd.hideLoading();
       },
     });
   },
@@ -97,7 +52,7 @@ Page({
     var t = this;
     dd.getStorage({
       key: 'is_on_show_refresh',
-      success: function(res) {
+      success: function (res) {
         if (res.data) {
           dd.setStorage({ key: 'is_on_show_refresh', data: false });
           t.onLoad();
@@ -105,17 +60,13 @@ Page({
       }
     });
   },
-  onLoad() {
+  onLoad(e) {
     var t = this;
-    if(t.data.date_1 == ''){
-      var now = new Date();
-      t.setData({ "date_1": now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + (now.getDate()) });
-      t.setData({ "date_2": t.data.date_1 });
-    }
+    if (t.data.no_bill == "") t.setData({ "no_bill": e.no_bill });
     //判定是否登录
     dd.getStorage({
       key: 'login',
-      success: function(res) {
+      success: function (res) {
         t.setData({ login: res.data });
         //载入等待
         dd.showLoading({
@@ -129,9 +80,8 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            date_start: t.data.date_1,
-            date_end: t.data.date_2 + " 23:59:59",
-            name_space: "Task.TaskListAct.BindinggridControl1"
+            no_bill: t.data.no_bill,
+            name_space: "StorageWork.PurchaseList4Manage.BindinggridControl2"
           },
           dataType: 'json',
           success: (res2) => {
@@ -141,24 +91,17 @@ Page({
             for (var i = 0; i < d_1.length; i++) {
               var d = d_1[i];
               var title_1 = "";
-              title_1 += "[名称]" + d.name_task;
-              title_1 += "\n[截止]" + d.date_end;
-              title_1 += "\n[地点]" + d.addr;
+              title_1 += "[物料]" + d.name_item;
+              title_1 += "\n[数量]" + d.qty;
+              title_1 += "\n[单价]" + d.price;
+              title_1 += "\n[金额]" + d.amount;
               var title_2 = "";
-              if (d.name_task != "") title_2 += " [名称]" + d.name_task;
-              if (d.date_end != "") title_2 += " [截止]" + d.date_end;
-              if (d.addr != "") title_2 += " [地点]" + d.addr;
-              if (d.name_task_flow != "") title_2 += " [流程]" + d.name_task_flow;
-              if (d.name_project != "") title_2 += " [项目]" + d.name_project;
-              if (d.qty_reward != "") title_2 += " [积分]" + d.qty_reward;
-              if (d.remark_task != "") title_2 += " [备注]" + d.remark_task;
 
               var d = {
                 title: title_1
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
-                , extra: "查看详情"
+                //, extra: "查看详情"
                 , textMode: "wrap"
-                , no_ls: d.no_ls
                 , title_2: title_2
               };
               d_2.push(d);
@@ -166,7 +109,7 @@ Page({
             t.setData({ "listData.data": d_2 });
           },
           fail: (res2) => {
-            dd.alert({content: JSON.stringify(res2)});
+            dd.alert({ content: JSON.stringify(res2) });
           },
           complete: (res2) => {
             dd.hideLoading();
