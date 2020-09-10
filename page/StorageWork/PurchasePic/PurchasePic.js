@@ -29,7 +29,8 @@ Page({
               + "&no_key=" + t.data.no_purchase_1
               + "&qty_sort=" + qty_sort
               + "&username=" + t.data.login.username
-              + "&code_login=" + t.data.login.code_login,
+              + "&code_login=" + t.data.login.code_login
+              + "&name_space=StorageWork.PurchasePic.BindinggridControl1",
             fileType: 'image',
             fileName: 'file',
             filePath: res.filePaths[i],
@@ -42,6 +43,7 @@ Page({
     });
   },
   del() {
+    var t = this;
     //载入等待
     dd.showLoading({
       content: '加载中...',
@@ -59,7 +61,8 @@ Page({
       },
       dataType: 'json',
       success: (res2) => {
-        t.onLoad();
+        dd.setStorage({ key: 'is_on_show_refresh', data: true });
+        dd.navigateBack();
       },
       fail: (res2) => {
         dd.alert({ content: JSON.stringify(res2) });
@@ -94,7 +97,8 @@ Page({
                   + "&no_key=" + t.data.no_purchase_1
                   + "&qty_sort=" + qty_sort
                   + "&username=" + t.data.login.username
-                  + "&code_login=" + t.data.login.code_login,
+                  + "&code_login=" + t.data.login.code_login
+                  + "&name_space=StorageWork.PurchasePic.BindinggridControl1",
                 fileType: 'image',
                 fileName: 'file',
                 filePath: res2.filePaths[0],
