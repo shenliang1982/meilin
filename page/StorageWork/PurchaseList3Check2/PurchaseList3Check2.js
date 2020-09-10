@@ -4,7 +4,7 @@ Page({
   ...list,
   data: {
     listData: {
-      //onItemTap: 'handleListItemTap',
+      onItemTap: 'handleListItemTap',
       //header: 'list1',
       data: []
     },
@@ -13,6 +13,13 @@ Page({
       code_login: ""
     },
     no_bill: "",
+  },
+  handleListItemTap(e) {
+    var t = this;
+    var d = this.data.listData.data[e.currentTarget.dataset.index];
+    dd.navigateTo({
+      url: '../PurchaseList3Check3/PurchaseList3Check3?no_item=' + d.no_item
+    });
   },
   check() {
     var t = this;
@@ -100,8 +107,10 @@ Page({
               var d = {
                 title: title_1
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
+                , arrow: 'horizontal'
                 //, extra: "查看详情"
                 , textMode: "wrap"
+                , no_item: d.no_item
                 , title_2: title_2
               };
               d_2.push(d);

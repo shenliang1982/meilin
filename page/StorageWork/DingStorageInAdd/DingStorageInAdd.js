@@ -30,7 +30,7 @@ Page({
       data: {
         username: t.data.login.username,
         code_login: t.data.login.code_login,
-        no_purchase_2: e.detail.value.no_purchase_2,
+        no_purchase_12: e.detail.value.no_purchase_12,
         name_space: "StorageWork.DingStorageIn.AddIn"
       },
       dataType: 'json',
