@@ -155,6 +155,9 @@ Page({
       },
     });
   },
+  onLongTap(e) {
+    dd.alert({ content: e.target.targetDataset.name });
+  },
   onLoad(e) {
     var t = this;
     if (t.data.no_purchase_1 == "") t.setData({ "no_purchase_1": e.no_purchase_1 });

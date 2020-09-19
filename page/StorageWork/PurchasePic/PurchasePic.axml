@@ -10,6 +10,7 @@
       <image class="image"
         data-name="{{item.qty_sort}}"
         onTap="onTap"
+        onLongTap="onLongTap"
         mode="widthFix" src="{{item.url}}" />
     </view>
   </view>

@@ -54,6 +54,12 @@ Page({
       url: '../DingStorageInAdd/DingStorageInAdd'
     });
   },
+  add_pic() {
+    var d = this.data.listData.data[0];
+    dd.navigateTo({
+      url: '../StorageInPic/StorageInPic?no_storage_in_1=' + d.no_bill
+    });
+  },
   handleListItemTap(e) {
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
@@ -115,6 +121,7 @@ Page({
                 , extra: "改入库数"
                 , textMode: "wrap"
                 , no_body: d.no_body
+                , no_bill: d.no_bill
                 , title_2: title_2
               };
               d_2.push(d);
