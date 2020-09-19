@@ -35,7 +35,8 @@ Page({
             fileName: 'file',
             filePath: res.filePaths[i],
             success: (res2) => {
-              t.onLoad();
+              if (res2.data.substr(0, 4) == "http") t.onLoad();
+              else dd.alert({ content: res2.data });
             },
           });
         }
@@ -61,8 +62,11 @@ Page({
       },
       dataType: 'json',
       success: (res2) => {
-        dd.setStorage({ key: 'is_on_show_refresh', data: true });
-        dd.navigateBack();
+        if (res2.data.is_ok) {
+          dd.setStorage({ key: 'is_on_show_refresh', data: true });
+          dd.navigateBack();
+        }
+        else dd.alert({ content: res2.data.error });
       },
       fail: (res2) => {
         dd.alert({ content: JSON.stringify(res2) });
@@ -103,7 +107,8 @@ Page({
                 fileName: 'file',
                 filePath: res2.filePaths[0],
                 success: (res3) => {
-                  t.onLoad();
+                  if (res3.data.substr(0, 4) == "http") t.onLoad();
+                  else dd.alert({ content: res3.data });
                 },
                 fail: (res3) => {
                   dd.alert({ content: JSON.stringify(res3) });
@@ -136,7 +141,8 @@ Page({
             },
             dataType: 'json',
             success: (res2) => {
-              t.onLoad();
+              if (res2.data.is_ok) t.onLoad();
+              else dd.alert({ content: res2.data.error });
             },
             fail: (res2) => {
               dd.alert({ content: JSON.stringify(res2) });
@@ -179,7 +185,7 @@ Page({
           fail: (res2) => {
             dd.alert({ content: JSON.stringify(res2) });
           },
-          complete: (res2) => {
+          complete: () => {
             dd.hideLoading();
           },
         });

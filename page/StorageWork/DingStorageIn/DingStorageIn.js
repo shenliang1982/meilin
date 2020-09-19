@@ -102,8 +102,7 @@ Page({
             for (var i = 0; i < d_1.length; i++) {
               var d = d_1[i];
               var title_1 = "";
-              title_1 += "[项目]" + d.project;
-              title_1 += "\n[供应商]" + d.name_company;
+              title_1 += "[供应商]" + d.name_company;
               title_1 += "\n[规格]" + d.name_item;
               title_1 += "\n[采购数量]" + d.qty_purchase;
               title_1 += "\n[剩余数量]" + d.qty_left;
