@@ -5,6 +5,7 @@ Page({
   data: {
     listData: {
       onItemTap: 'handleListItemTap',
+      onItemLongTap: 'onItemLongTap',
       //header: '日志列表',
       data: []
     },
@@ -60,8 +61,13 @@ Page({
       url: '../StorageInPic/StorageInPic?no_storage_in_1=' + d.no_bill
     });
   },
+  onItemLongTap(e){
+    var d = this.data.listData.data[e.currentTarget.dataset.index];
+    dd.navigateTo({
+      url: '../StorageInPic/StorageInPic?no_storage_in_1=' + d.no_bill
+    });
+  },
   handleListItemTap(e) {
-    var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
     dd.navigateTo({
       url: '../DingStorageInQty/DingStorageInQty?no_body=' + d.no_body
