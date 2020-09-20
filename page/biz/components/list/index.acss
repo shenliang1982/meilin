@@ -64,7 +64,6 @@
 
 .a-list .a-list-item .a-list-item-content {
     flex: 1;
-    flex: 1;
     color: #000;
     font-size: .34rem;
     text-align: left;
@@ -96,7 +95,7 @@
 }
 
 .a-list .a-list-item .a-list-item-line-wrap .a-list-item-content, .a-list .a-list-item .a-list-item-line-wrap .a-list-item-extra {
-    white-space: normal;
+    white-space: pre-wrap;
 }
 
 .a-list .a-list-item.a-list-item-hover {

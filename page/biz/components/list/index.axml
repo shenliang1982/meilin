@@ -11,6 +11,7 @@
                             class="a-list-item {{index !== (data.length - 1) ? '': 'last'}} am-list-item-{{item.align || 'middle'}}"
                             hover-class="a-list-item-hover"
                             onTap="{{onItemTap}}"
+                            onLongTap="{{onItemLongTap}}"
                             data-index={{index}}
                         >
                             <view class="a-list-item-line {{item.textMode ? 'a-list-item-line-' + item.textMode : ''}}">
