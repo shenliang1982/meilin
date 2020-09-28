@@ -46,12 +46,12 @@ Page({
           icon: '/image/icon_component_HL.png',
           title: '采购审核',
           entitle: '采购入库/采购审核',
-          page: 'StorageWork/PurchaseList3Check/PurchaseList3Check',
+          page: 'StorageWork/PurchaseList5Check/PurchaseList5Check',
         },{
           icon: '/image/icon_component_HL.png',
           title: '采购抄送',
           entitle: '采购入库/采购抄送',
-          page: 'StorageWork/PurchaseList4Manage/PurchaseList4Manage',
+          page: 'StorageWork/PurchaseList6Manage/PurchaseList6Manage',
         },{
           icon: '/image/icon_biz_HL.png',
           title: '入库',

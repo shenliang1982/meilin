@@ -84,7 +84,7 @@ Page({
             code_login: t.data.login.code_login,
             date_start: t.data.date_1,
             date_end: t.data.date_2 + " 23:59:59",
-            name_space: "StorageWork.PurchaseList4Manage.BindinggridControl1"
+            name_space: "StorageWork.PurchaseList6Manage.BindinggridControl1"
           },
           dataType: 'json',
           success: (res2) => {

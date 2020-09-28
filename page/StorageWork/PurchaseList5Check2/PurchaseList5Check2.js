@@ -18,7 +18,7 @@ Page({
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
     dd.navigateTo({
-      url: '../PurchaseList3Check3/PurchaseList3Check3?no_item=' + d.no_item
+      url: '../PurchaseList5Check3/PurchaseList5Check3?no_item=' + d.no_item
     });
   },
   check() {
@@ -36,7 +36,7 @@ Page({
         username: t.data.login.username,
         code_login: t.data.login.code_login,
         no_bill: t.data.no_bill,
-        name_space: "StorageWork.PurchaseList3Check.Check"
+        name_space: "StorageWork.PurchaseList5Check.Check"
       },
       dataType: 'json',
       success: (res2) => {
@@ -88,7 +88,7 @@ Page({
             username: t.data.login.username,
             code_login: t.data.login.code_login,
             no_bill: t.data.no_bill,
-            name_space: "StorageWork.PurchaseList3Check.BindinggridControl2"
+            name_space: "StorageWork.PurchaseList5Check.BindinggridControl2"
           },
           dataType: 'json',
           success: (res2) => {

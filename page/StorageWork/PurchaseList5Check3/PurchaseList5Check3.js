@@ -47,7 +47,7 @@ Page({
             username: t.data.login.username,
             code_login: t.data.login.code_login,
             no_item: t.data.no_item,
-            name_space: "StorageWork.PurchaseList3Check.BindinggridControl3"
+            name_space: "StorageWork.PurchaseList5Check.BindinggridControl3"
           },
           dataType: 'json',
           success: (res2) => {

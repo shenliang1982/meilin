@@ -21,7 +21,7 @@ Page({
       url: '../PurchaseList4Manage3/PurchaseList4Manage3?no_item=' + d.no_item
     });
   },
-  check() {
+  go_last() {
     var t = this;
     //载入等待
     dd.showLoading({
@@ -36,7 +36,7 @@ Page({
         username: t.data.login.username,
         code_login: t.data.login.code_login,
         no_bill: t.data.no_bill,
-        name_space: "StorageWork.PurchaseList4Manage.Check"
+        name_space: "StorageWork.PurchaseList6Manage.GoLast"
       },
       dataType: 'json',
       success: (res2) => {
@@ -88,7 +88,7 @@ Page({
             username: t.data.login.username,
             code_login: t.data.login.code_login,
             no_bill: t.data.no_bill,
-            name_space: "StorageWork.PurchaseList4Manage.BindinggridControl2"
+            name_space: "StorageWork.PurchaseList6Manage.BindinggridControl2"
           },
           dataType: 'json',
           success: (res2) => {

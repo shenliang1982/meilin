@@ -4,7 +4,7 @@ Page({
   ...list,
   data: {
     listData: {
-      onItemTap: 'handleListItemTap',
+      //onItemTap: 'handleListItemTap',
       //header: 'list1',
       data: []
     },
@@ -14,14 +14,7 @@ Page({
     },
     no_bill: "",
   },
-  handleListItemTap(e) {
-    var t = this;
-    var d = this.data.listData.data[e.currentTarget.dataset.index];
-    dd.navigateTo({
-      url: '../PurchaseList3Check3/PurchaseList3Check3?no_item=' + d.no_item
-    });
-  },
-  check() {
+  go_last() {
     var t = this;
     //载入等待
     dd.showLoading({
@@ -36,7 +29,41 @@ Page({
         username: t.data.login.username,
         code_login: t.data.login.code_login,
         no_bill: t.data.no_bill,
-        name_space: "StorageWork.PurchaseList3Check.Check"
+        name_space: "StorageWork.PurchaseList3Ok.GoLast"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        if (res2.data.is_ok) {
+          dd.setStorage({ key: 'is_on_show_refresh', data: true });
+          dd.navigateBack();
+        }
+        else
+          dd.alert({ content: JSON.stringify(res2.data.error) });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: (res2) => {
+        dd.hideLoading();
+      },
+    });
+  },
+  go_next() {
+    var t = this;
+    //载入等待
+    dd.showLoading({
+      content: '加载中...',
+      delay: '1000',
+    });
+    //载入列表
+    dd.httpRequest({
+      url: "http://47.114.96.139:8888/ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_bill: t.data.no_bill,
+        name_space: "StorageWork.PurchaseList3Ok.GoNext"
       },
       dataType: 'json',
       success: (res2) => {
@@ -88,7 +115,7 @@ Page({
             username: t.data.login.username,
             code_login: t.data.login.code_login,
             no_bill: t.data.no_bill,
-            name_space: "StorageWork.PurchaseList3Check.BindinggridControl2"
+            name_space: "StorageWork.PurchaseList5Check.BindinggridControl2"
           },
           dataType: 'json',
           success: (res2) => {
@@ -100,14 +127,12 @@ Page({
               var title_1 = "";
               title_1 += "[物料]" + d.name_item;
               title_1 += "\n[数量]" + d.qty;
-              title_1 += "\n[单价]" + d.price;
-              title_1 += "\n[金额]" + d.amount;
               var title_2 = "";
 
               var d = {
                 title: title_1
                 , thumb: "https://zos.alipayobjects.com/rmsportal/NTuILTPhmSpJdydEVwoO.png"
-                , arrow: 'horizontal'
+                //, arrow: 'horizontal'
                 //, extra: "查看详情"
                 , textMode: "wrap"
                 , no_item: d.no_item
