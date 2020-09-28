@@ -1,8 +1,0 @@
-<import src="/page/biz/components/list/index.axml" />
-
-<view>
-  <button type="ghost" size="mini" onTap="check" loading>审核</button>
-</view>
-<view>
-    <template is="List" data={{...listData}}></template>
-</view>

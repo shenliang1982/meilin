@@ -23,7 +23,9 @@
     "page/StorageWork/PurchaseList4Manage2/PurchaseList4Manage2",
     "page/StorageWork/PurchaseList3Check3/PurchaseList3Check3",
     "page/StorageWork/PurchaseList4Manage3/PurchaseList4Manage3",
-    "page/StorageWork/StorageInPic/StorageInPic"
+    "page/StorageWork/StorageInPic/StorageInPic",
+    "page/StorageWork/PurchaseList3Ok/PurchaseList3Ok",
+    "page/StorageWork/PurchaseList3Ok2/PurchaseList3Ok2"
   ],
   "window": {
     "defaultTitle": "梅霖ERP",
