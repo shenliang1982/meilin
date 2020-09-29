@@ -21,7 +21,7 @@ Page({
       url: '../PurchaseList5Check3/PurchaseList5Check3?no_item=' + d.no_item
     });
   },
-  check() {
+  go_last() {
     var t = this;
     //载入等待
     dd.showLoading({
@@ -36,7 +36,41 @@ Page({
         username: t.data.login.username,
         code_login: t.data.login.code_login,
         no_bill: t.data.no_bill,
-        name_space: "StorageWork.PurchaseList5Check.Check"
+        name_space: "StorageWork.PurchaseList5Check.GoLast"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        if (res2.data.is_ok) {
+          dd.setStorage({ key: 'is_on_show_refresh', data: true });
+          dd.navigateBack();
+        }
+        else
+          dd.alert({ content: JSON.stringify(res2.data.error) });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: (res2) => {
+        dd.hideLoading();
+      },
+    });
+  },
+  go_next() {
+    var t = this;
+    //载入等待
+    dd.showLoading({
+      content: '加载中...',
+      delay: '1000',
+    });
+    //载入列表
+    dd.httpRequest({
+      url: "http://47.114.96.139:8888/ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_bill: t.data.no_bill,
+        name_space: "StorageWork.PurchaseList5Check.GoNext"
       },
       dataType: 'json',
       success: (res2) => {

@@ -18,7 +18,7 @@ Page({
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
     dd.navigateTo({
-      url: '../PurchaseList4Manage3/PurchaseList4Manage3?no_item=' + d.no_item
+      url: '../PurchaseList6Manage3/PurchaseList6Manage3?no_item=' + d.no_item
     });
   },
   go_last() {

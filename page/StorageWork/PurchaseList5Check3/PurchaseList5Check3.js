@@ -58,6 +58,7 @@ Page({
               var d = d_1[i];
               var title_1 = "";
               title_1 += "[日期]" + d.date_bill;
+              title_1 += "\n[供应商]" + d.name_company;
               title_1 += "\n[单价]" + d.price;
               var title_2 = "";
 

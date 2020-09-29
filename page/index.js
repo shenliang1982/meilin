@@ -43,6 +43,11 @@ Page({
           entitle: '采购入库/采购图片',
           page: 'StorageWork/PurchaseList1Add/PurchaseList1Add',
         },{
+          icon: '/image/biz_tag.png',
+          title: '采购确认',
+          entitle: '采购入库/采购确认',
+          page: 'StorageWork/PurchaseList3Ok/PurchaseList3Ok',
+        },{
           icon: '/image/icon_component_HL.png',
           title: '采购审核',
           entitle: '采购入库/采购审核',

@@ -43,7 +43,7 @@ Page({
     var t = this;
     var d = this.data.listData.data[e.currentTarget.dataset.index];
     dd.navigateTo({
-      url: '../PurchaseList3Check2/PurchaseList3Check2?no_bill=' + d.no_bill
+      url: '../PurchaseList5Check2/PurchaseList5Check2?no_bill=' + d.no_bill
     });
   },
   onShow() {
