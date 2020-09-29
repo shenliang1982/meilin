@@ -62,6 +62,11 @@ Page({
           title: '入库',
           entitle: '采购入库/扫描入库',
           page: 'StorageWork/DingStorageIn/DingStorageIn',
+        },{
+          icon: '/image/canvas.png',
+          title: '入库确认',
+          entitle: '采购入库/库管确认',
+          page: 'StorageWork/StorageInListCheck/StorageInListCheck',
         },
       ],
     },

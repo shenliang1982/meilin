@@ -25,6 +25,8 @@
     "page/StorageWork/PurchaseList6Manage2/PurchaseList6Manage2",
     "page/StorageWork/PurchaseList6Manage3/PurchaseList6Manage3",
     "page/StorageWork/PurchasePic/PurchasePic",
+    "page/StorageWork/StorageInListCheck/StorageInListCheck",
+    "page/StorageWork/StorageInListCheck2/StorageInListCheck2",
     "page/StorageWork/StorageInPic/StorageInPic"
   ],
   "window": {
