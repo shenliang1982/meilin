@@ -43,6 +43,40 @@ Page({
       },
     });
   },
+  go_next() {
+    var t = this;
+    //载入等待
+    dd.showLoading({
+      content: '加载中...',
+      delay: '1000',
+    });
+    //载入列表
+    dd.httpRequest({
+      url: "http://47.114.96.139:8888/ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_bill: t.data.no_purchase_1,
+        name_space: "StorageWork.PurchaseList1Add.GoNext"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        if (res2.data.is_ok) {
+          dd.setStorage({ key: 'is_on_show_refresh', data: true });
+          dd.navigateBack();
+        }
+        else
+          dd.alert({ content: JSON.stringify(res2.data.error) });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: (res2) => {
+        dd.hideLoading();
+      },
+    });
+  },
   del() {
     var t = this;
     //载入等待

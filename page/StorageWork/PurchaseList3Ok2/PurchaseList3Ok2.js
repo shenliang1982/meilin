@@ -115,7 +115,7 @@ Page({
             username: t.data.login.username,
             code_login: t.data.login.code_login,
             no_bill: t.data.no_bill,
-            name_space: "StorageWork.PurchaseList5Check.BindinggridControl2"
+            name_space: "StorageWork.PurchaseList3Ok.BindinggridControl2"
           },
           dataType: 'json',
           success: (res2) => {
