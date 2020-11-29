@@ -125,8 +125,10 @@ Page({
             for (var i = 0; i < d_1.length; i++) {
               var d = d_1[i];
               var title_1 = "";
-              title_1 += "[物料]" + d.name_item;
+              title_1 += "[大类]" + d.name_item_type;
+              title_1 += "\n[物料]" + d.name_item;
               title_1 += "\n[数量]" + d.qty;
+              title_1 += "\n[备注]" + d.remark;
               var title_2 = "";
 
               var d = {
