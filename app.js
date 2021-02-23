@@ -48,7 +48,7 @@ App({
   },
   DingLogin() {
     dd.getAuthCode({
-      success: function(res1) {
+      success: function (res1) {
         //免登
         dd.httpRequest({
           url: "http://47.114.96.139:8888/DingLogin.ashx",
@@ -59,14 +59,19 @@ App({
           dataType: 'json',
           success: (res2) => {
             //dd.alert({content: "29" + JSON.stringify(res2)});
+            var url_1 = {
+              username: res2.data.username,
+              code_login: res2.data.code_login,
+              url: "http://47.114.96.139:8888/",
+            };
             dd.setStorage({
               key: 'login',
-              data: res2.data,
-              success: function() { }
+              data: url_1,
+              success: function () { }
             });
           },
           fail: (res2) => {
-            dd.alert({content: "37" + JSON.stringify(res2)});
+            dd.alert({ content: "37" + JSON.stringify(res2) });
           },
         });
       }
