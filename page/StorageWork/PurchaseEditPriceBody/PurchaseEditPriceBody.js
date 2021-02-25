@@ -6,6 +6,13 @@ Page({
       url: ""
     },
     data_1: {},
+    no_body: ''
+  },
+  history_price(){
+    var t = this;
+    dd.navigateTo({
+      url: '../PurchaseEditPriceBody2/PurchaseEditPriceBody2?no_body=' + t.data.no_body
+    });
   },
   select_item(name_space, name_col_no, name_col_name) {
     var t = this;
@@ -55,6 +62,7 @@ Page({
   onLoad(e) {
     //e.no_ls
     var t = this;
+    if (t.data.no_body == "") t.setData({ "no_body": e.no_body });
     //判定是否登录
     dd.getStorage({
       key: 'login',
@@ -72,7 +80,7 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            no_body: e.no_body,
+            no_body: t.data.no_body,
             name_space: "StorageWork.PurchaseEditPriceBody.BindinggroupControl1"
           },
           dataType: 'json',
@@ -128,8 +136,5 @@ Page({
         dd.hideLoading();
       },
     });
-  },
-  onReset() {
-
   },
 });
