@@ -7,7 +7,7 @@ Page({
     },
     data_1: {},
   },
-  select_item(name_space, name_col_no, name_col_name) {
+  select_item_type() {
     var t = this;
     //载入列表
     dd.httpRequest({
@@ -16,7 +16,7 @@ Page({
       data: {
         username: t.data.login.username,
         code_login: t.data.login.code_login,
-        name_space: name_space
+        name_space: "StorageWork.PurchaseEditBody.AlxgroupControl1name_item_type"
       },
       dataType: 'json',
       success: (res2) => {
@@ -25,7 +25,7 @@ Page({
         var d_2 = [];
         for (var i = 0; i < d_1.length; i++) {
           var d = d_1[i];
-          d_2.push(d[name_col_name]);
+          d_2.push(d["name_item_type"]);
         }
 
         dd.showActionSheet({
@@ -33,9 +33,11 @@ Page({
           items: d_2,
           //cancelButtonText: '取消',
           success: (res) => {
-            t.setData({ [name_col_no]: d_1[res.index].no_ls });
-            t.setData({ [name_col_name]: d_1[res.index][name_col_name] });
-            t.onLoad();
+            t.setData({ "data_1.no_item_type": d_1[res.index].no_ls });
+            t.setData({ "data_1.name_item_type": d_1[res.index].name_item_type });
+            t.setData({ "data_1.no_item": "" });
+            t.setData({ "data_1.name_item": "" });
+            t.setData({ "data_1.unit": "" });
           },
         });
       },
@@ -47,10 +49,46 @@ Page({
       },
     });
   },
-  select_project() {
+  select_item() {
     var t = this;
-    t.select_item("Task.TaskAddTop.AlxgroupControl1name_project"
-    , "no_project", "name_project");
+    //载入列表
+    dd.httpRequest({
+      url: t.data.login.url + "ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_item_type: t.data_1.no_item_type,
+        name_space: "StorageWork.PurchaseEditBody.AlxgroupControl1name_item"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        if (res2.data.error != "") dd.alert({ content: res2.data.error });
+        var d_1 = res2.data.json_ar_0;
+        var d_2 = [];
+        for (var i = 0; i < d_1.length; i++) {
+          var d = d_1[i];
+          d_2.push(d["name_item"]);
+        }
+
+        dd.showActionSheet({
+          title: "选择",
+          items: d_2,
+          //cancelButtonText: '取消',
+          success: (res) => {
+            t.setData({ "data_1.no_item": d_1[res.index].no_ls });
+            t.setData({ "data_1.name_item": d_1[res.index].name_item });
+            t.setData({ "data_1.unit": d_1[res.index].unit });
+          },
+        });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: (res2) => {
+        dd.hideLoading();
+      },
+    });
   },
   onLoad(e) {
     //e.no_ls
@@ -72,8 +110,9 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            no_ls: e.no_ls,
-            name_space: "Task.TaskAnswerYes.BindinggroupControl1"
+            no_bill: e.no_bill,
+            no_body: e.no_body,
+            name_space: "StorageWork.PurchaseEditBody.BindinggroupControl1"
           },
           dataType: 'json',
           success: (res2) => {
@@ -92,9 +131,8 @@ Page({
   },
   onSubmit(e) {
     var t = this;
-    t.data.data_1.qty_cost = e.detail.value.qty_cost;
-    t.data.data_1.qty_effect = e.detail.value.qty_effect;
-    t.data.data_1.remark_answer = e.detail.value.remark_answer;
+    t.data.data_1.qty = e.detail.value.qty;
+    t.data.data_1.remark = e.detail.value.remark;
     //载入等待
     dd.showLoading({
       content: '加载中...',
@@ -102,7 +140,7 @@ Page({
     });
     //提交数据
     var p_in = {
-      no_ls: t.data.data_1.no_ls,
+      no_body: t.data.data_1.no_body,
       json_ar_0: [t.data.data_1]
     };
     dd.httpRequest({
@@ -111,7 +149,7 @@ Page({
       data: {
         username: t.data.login.username,
         code_login: t.data.login.code_login,
-        name_space: "ProjectLinkUse.TaskAnswerYes.Save",
+        name_space: "StorageWork.PurchaseEditBody.Save",
         json_in: JSON.stringify(p_in),
       },
       dataType: 'json',

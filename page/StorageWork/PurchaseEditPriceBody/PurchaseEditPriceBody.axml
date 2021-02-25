@@ -1,0 +1,72 @@
+<view class="page">
+  <view class="page-description">采购单价</view>
+  <form onSubmit="onSubmit" onReset="onReset">
+    <view class="page-section">
+
+      <view class="form-row">
+        <view class="form-row-label">大类</view>
+        <view class="form-row-content">
+          <input class="input" name="name_item_type" disabled="disabled" value="{{data_1.name_item_type}}" />
+        </view>
+      </view>
+      <view class="form-line" />
+
+      <view class="form-row">
+        <view class="form-row-label">规格</view>
+        <view class="form-row-content">
+          <input class="input" name="name_item" disabled="disabled" value="{{data_1.name_item}}" />
+        </view>
+      </view>
+      <view class="form-line" />
+
+      <view class="form-row">
+        <view class="form-row-label">计量单位</view>
+        <view class="form-row-content">
+          <input class="input" name="unit" disabled="disabled" value="{{data_1.unit}}" />
+        </view>
+      </view>
+      <view class="form-line" />
+
+      <view class="form-row">
+        <view class="form-row-label">数量</view>
+        <view class="form-row-content">
+          <input class="input" type="number" name="qty" disabled="disabled" value="{{data_1.qty}}" />
+        </view>
+      </view>
+      <view class="form-line" />
+      
+      <view class="page-section">
+        <view class="page-section-title">备注</view>
+        <view class="page-section-demo">
+          <textarea auto-height name="remark" disabled="disabled" value="{{data_1.remark}}" maxlength="250" />
+        </view>
+      </view>
+      <view class="form-line" />
+
+      <view class="form-row">
+        <view class="form-row-label">供应商</view>
+        <view class="form-row-content">
+          <input class="input" name="name_company" disabled="disabled" value="{{data_1.name_company}}" />
+        </view>
+        <button type="ghost" size="mini" onTap="select_company" loading>供应商</button>
+      </view>
+      <view class="form-line" />
+
+      <view class="form-row">
+        <view class="form-row-label">单价</view>
+        <view class="form-row-content">
+          <input class="input" name="price" value="{{data_1.price}}" />
+        </view>
+      </view>
+
+    </view>
+    <view class="page-section">
+      <view class="page-section-btns">
+        <view>
+          <button type="ghost" size="mini" formType="reset">重置</button></view>
+        <view>
+          <button type="primary" size="mini" formType="submit">提交</button></view>
+      </view>
+    </view>
+  </form>
+</view>

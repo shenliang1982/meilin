@@ -33,8 +33,8 @@ Page({
           items: d_2,
           //cancelButtonText: '取消',
           success: (res) => {
-            t.setData({ [name_col_no]: d_1[res.index].no_ls });
-            t.setData({ [name_col_name]: d_1[res.index][name_col_name] });
+            t.setData({ ["data_1." + name_col_no]: d_1[res.index].no_ls });
+            t.setData({ ["data_1." + name_col_name]: d_1[res.index][name_col_name] });
             t.onLoad();
           },
         });
@@ -47,10 +47,10 @@ Page({
       },
     });
   },
-  select_project() {
+  select_company() {
     var t = this;
-    t.select_item("Task.TaskAddTop.AlxgroupControl1name_project"
-    , "no_project", "name_project");
+    t.select_item("StorageWork.PurchaseEditPriceBody.AlxgroupControl1name_company"
+    , "no_company", "name_company");
   },
   onLoad(e) {
     //e.no_ls
@@ -72,8 +72,8 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            no_ls: e.no_ls,
-            name_space: "Task.TaskAnswerYes.BindinggroupControl1"
+            no_body: e.no_body,
+            name_space: "StorageWork.PurchaseEditPriceBody.BindinggroupControl1"
           },
           dataType: 'json',
           success: (res2) => {
@@ -92,9 +92,7 @@ Page({
   },
   onSubmit(e) {
     var t = this;
-    t.data.data_1.qty_cost = e.detail.value.qty_cost;
-    t.data.data_1.qty_effect = e.detail.value.qty_effect;
-    t.data.data_1.remark_answer = e.detail.value.remark_answer;
+    t.data.data_1.price = e.detail.value.price;
     //载入等待
     dd.showLoading({
       content: '加载中...',
@@ -102,7 +100,7 @@ Page({
     });
     //提交数据
     var p_in = {
-      no_ls: t.data.data_1.no_ls,
+      no_body: t.data.data_1.no_body,
       json_ar_0: [t.data.data_1]
     };
     dd.httpRequest({
@@ -111,7 +109,7 @@ Page({
       data: {
         username: t.data.login.username,
         code_login: t.data.login.code_login,
-        name_space: "ProjectLinkUse.TaskAnswerYes.Save",
+        name_space: "StorageWork.PurchaseEditPriceBody.Save",
         json_in: JSON.stringify(p_in),
       },
       dataType: 'json',
