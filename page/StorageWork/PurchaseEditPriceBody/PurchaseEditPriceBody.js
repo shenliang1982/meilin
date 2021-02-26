@@ -42,7 +42,6 @@ Page({
           success: (res) => {
             t.setData({ ["data_1." + name_col_no]: d_1[res.index].no_ls });
             t.setData({ ["data_1." + name_col_name]: d_1[res.index][name_col_name] });
-            t.onLoad();
           },
         });
       },
@@ -101,6 +100,7 @@ Page({
   onSubmit(e) {
     var t = this;
     t.data.data_1.price = e.detail.value.price;
+    t.data.data_1.amount = t.data.data_1.qty * t.data.data_1.price;
     //载入等待
     dd.showLoading({
       content: '加载中...',
