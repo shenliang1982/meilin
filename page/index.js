@@ -44,9 +44,19 @@ Page({
           page: 'StorageWork/PurchaseList1Add/PurchaseList1Add',
         },{
           icon: '/image/biz_tag.png',
+          title: '采购数量',
+          entitle: '采购入库/采购数量',
+          page: 'StorageWork/PurchaseList2Qty/PurchaseList2Qty',
+        },{
+          icon: '/image/biz_tag.png',
           title: '采购确认',
           entitle: '采购入库/采购确认',
           page: 'StorageWork/PurchaseList3Ok/PurchaseList3Ok',
+        },{
+          icon: '/image/biz_tag.png',
+          title: '采购询价',
+          entitle: '采购入库/采购询价',
+          page: 'StorageWork/PurchaseList4Price/PurchaseList4Price',
         },{
           icon: '/image/icon_component_HL.png',
           title: '采购审核',

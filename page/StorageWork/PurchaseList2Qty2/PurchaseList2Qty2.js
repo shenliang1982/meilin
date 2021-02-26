@@ -16,28 +16,71 @@ Page({
     },
     no_bill: ''
   },
-  newdate_1() {
+  go_last() {
     var t = this;
-    dd.datePicker({
-      //format: 'yyyy-MM',
-      currentDate: t.data.date_1,
-      startDate: '2020-1-1',
-      endDate: '2030-1-1',
-      success: (res) => {
-        t.setData({ "date_1": res.date });
-        t.onLoad();
+    //载入等待
+    dd.showLoading({
+      content: '加载中...',
+      delay: '1000',
+    });
+    //载入列表
+    dd.httpRequest({
+      url: t.data.login.url + "ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_bill: t.data.no_bill,
+        name_space: "StorageWork.PurchaseList2Qty.GoLast"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        if (res2.data.is_ok) {
+          dd.setStorage({ key: 'is_on_show_refresh', data: true });
+          dd.navigateBack();
+        }
+        else
+          dd.alert({ content: JSON.stringify(res2.data.error) });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: (res2) => {
+        dd.hideLoading();
       },
     });
   },
-  newdate_2() {
+  go_next() {
     var t = this;
-    dd.datePicker({
-      currentDate: t.data.date_2,
-      startDate: '2020-1-1',
-      endDate: '2030-1-1',
-      success: (res) => {
-        t.setData({ "date_2": res.date });
-        t.onLoad();
+    //载入等待
+    dd.showLoading({
+      content: '加载中...',
+      delay: '1000',
+    });
+    //载入列表
+    dd.httpRequest({
+      url: t.data.login.url + "ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_bill: t.data.no_bill,
+        name_space: "StorageWork.PurchaseList2Qty.GoNext"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        if (res2.data.is_ok) {
+          dd.setStorage({ key: 'is_on_show_refresh', data: true });
+          dd.navigateBack();
+        }
+        else
+          dd.alert({ content: JSON.stringify(res2.data.error) });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: (res2) => {
+        dd.hideLoading();
       },
     });
   },

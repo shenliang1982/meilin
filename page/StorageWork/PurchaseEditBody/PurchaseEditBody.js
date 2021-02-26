@@ -58,7 +58,7 @@ Page({
       data: {
         username: t.data.login.username,
         code_login: t.data.login.code_login,
-        no_item_type: t.data_1.no_item_type,
+        no_item_type: t.data.data_1.no_item_type,
         name_space: "StorageWork.PurchaseEditBody.AlxgroupControl1name_item"
       },
       dataType: 'json',
@@ -154,7 +154,7 @@ Page({
       },
       dataType: 'json',
       success: (res2) => {
-        if (res2.data.is_ok == 'True'){
+        if (res2.data.is_ok){
           dd.setStorage({key: 'is_on_show_refresh',data: true});
           dd.navigateBack();
         }

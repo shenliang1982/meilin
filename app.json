@@ -30,11 +30,10 @@
     "page/StorageWork/StorageInPic/StorageInPic",
     "page/StorageWork/PurchaseList2Qty/PurchaseList2Qty",
     "page/StorageWork/PurchaseList2Qty2/PurchaseList2Qty2",
-    "page/StorageWork/PurchaseEdit/PurchaseEdit",
     "page/StorageWork/PurchaseList4Price/PurchaseList4Price",
     "page/StorageWork/PurchaseList4Price2/PurchaseList4Price2",
-    "page/StorageWork/PurchaseEditPrice/PurchaseEditPrice",
-    "page/StorageWork/PurchaseList4Price3/PurchaseList4Price3",
+    "page/StorageWork/PurchaseEditBody/PurchaseEditBody",
+    "page/StorageWork/PurchaseEditPriceBody/PurchaseEditPriceBody",
     "page/StorageWork/PurchaseEditPriceBody2/PurchaseEditPriceBody2"
   ],
   "window": {
