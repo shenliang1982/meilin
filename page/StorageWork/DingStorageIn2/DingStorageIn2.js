@@ -16,9 +16,8 @@ Page({
     no_bill: ""
   },
   add_pic() {
-    var d = this.data.listData.data[0];
     dd.navigateTo({
-      url: '../StorageInPic/StorageInPic?no_storage_in_1=' + d.no_bill
+      url: '../StorageInPic/StorageInPic?no_storage_in_1=' + this.data.no_bill
     });
   },
   handleListItemTap(e) {
@@ -59,6 +58,7 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
+            no_bill: t.data.no_bill,
             name_space: "StorageWork.DingStorageIn.BindinggridControl2"
           },
           dataType: 'json',
