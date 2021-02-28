@@ -34,7 +34,8 @@
     "page/StorageWork/PurchaseList4Price2/PurchaseList4Price2",
     "page/StorageWork/PurchaseEditBody/PurchaseEditBody",
     "page/StorageWork/PurchaseEditPriceBody/PurchaseEditPriceBody",
-    "page/StorageWork/PurchaseEditPriceBody2/PurchaseEditPriceBody2"
+    "page/StorageWork/PurchaseEditPriceBody2/PurchaseEditPriceBody2",
+    "page/StorageWork/DingStorageIn2/DingStorageIn2"
   ],
   "window": {
     "defaultTitle": "梅霖ERP",
