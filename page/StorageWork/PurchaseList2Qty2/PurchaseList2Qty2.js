@@ -128,7 +128,7 @@ Page({
           data: {
             username: t.data.login.username,
             code_login: t.data.login.code_login,
-            no_bill: e.no_bill,
+            no_bill: t.data.no_bill,
             name_space: "StorageWork.PurchaseList2Qty.BindinggridControl2"
           },
           dataType: 'json',

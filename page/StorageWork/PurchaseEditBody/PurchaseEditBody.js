@@ -7,6 +7,11 @@ Page({
     },
     data_1: {},
   },
+  look_pic(){
+    dd.navigateTo({
+      url: '../PurchasePic/PurchasePic?no_purchase_1=' + this.data.data_1.no_head
+    });
+  },
   select_item_type() {
     var t = this;
     //载入列表
