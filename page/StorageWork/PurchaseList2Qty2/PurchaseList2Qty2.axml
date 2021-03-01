@@ -5,6 +5,7 @@
   <button type="ghost" size="mini" onTap="go_last" loading>退回</button>
   <button style="margin-left: 5px;" type="ghost" size="mini" onTap="go_next" loading>提确认</button>
 </view>
+  <button type="ghost" size="mini" onTap="look_pic" loading>图片</button>
   <button type="ghost" size="mini" onTap="add" loading>增加</button>
 </view>
 <view>

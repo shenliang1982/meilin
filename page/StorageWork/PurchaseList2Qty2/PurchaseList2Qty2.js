@@ -84,6 +84,38 @@ Page({
       },
     });
   },
+  look_pic() {
+    var t = this;
+    //载入列表
+    dd.httpRequest({
+      url: "http://47.114.96.139:8888/ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_purchase_1: t.data.no_bill,
+        name_space: "StorageWork.PurchasePic.BindinggridControl1"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        var d_1 = res2.data.json_ar_0;
+        var d_2 = [];
+        for (var i = 0; i < d_1.length; i++) {
+          d_2.push(d_1[i].url);
+        }
+        dd.previewImage({
+          current: 0,
+          urls: d_2
+        });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: () => {
+        dd.hideLoading();
+      },
+    });
+  },
   add() {
     dd.navigateTo({
       url: '../PurchaseEditBody/PurchaseEditBody?no_bill=' + this.data.no_bill
