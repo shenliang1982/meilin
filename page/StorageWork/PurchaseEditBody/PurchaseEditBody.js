@@ -7,9 +7,36 @@ Page({
     },
     data_1: {},
   },
-  look_pic(){
-    dd.navigateTo({
-      url: '../PurchasePic/PurchasePic?no_purchase_1=' + this.data.data_1.no_head
+  look_pic() {
+    var t = this;
+    //载入列表
+    dd.httpRequest({
+      url: "http://47.114.96.139:8888/ActBack.ashx",
+      method: 'POST',
+      data: {
+        username: t.data.login.username,
+        code_login: t.data.login.code_login,
+        no_purchase_1: t.data.data_1.no_head,
+        name_space: "StorageWork.PurchasePic.BindinggridControl1"
+      },
+      dataType: 'json',
+      success: (res2) => {
+        var d_1 = res2.data.json_ar_0;
+        var d_2 = [];
+        for (var i = 0; i < d_1.length; i++) {
+          d_2.push(d_1[i].url);
+        }
+        dd.previewImage({
+          current: 0,
+          urls: d_2
+        });
+      },
+      fail: (res2) => {
+        dd.alert({ content: JSON.stringify(res2) });
+      },
+      complete: () => {
+        dd.hideLoading();
+      },
     });
   },
   select_item_type() {
@@ -101,7 +128,7 @@ Page({
     //判定是否登录
     dd.getStorage({
       key: 'login',
-      success: function(res) {
+      success: function (res) {
         t.setData({ login: res.data });
         //载入等待
         dd.showLoading({
@@ -125,7 +152,7 @@ Page({
             t.setData({ "data_1": res2.data.json_ar_0[0] });
           },
           fail: (res2) => {
-            dd.alert({content: JSON.stringify(res2)});
+            dd.alert({ content: JSON.stringify(res2) });
           },
           complete: (res2) => {
             dd.hideLoading();
@@ -159,15 +186,15 @@ Page({
       },
       dataType: 'json',
       success: (res2) => {
-        if (res2.data.is_ok){
-          dd.setStorage({key: 'is_on_show_refresh',data: true});
+        if (res2.data.is_ok) {
+          dd.setStorage({ key: 'is_on_show_refresh', data: true });
           dd.navigateBack();
         }
         else
           dd.alert({ content: JSON.stringify(res2.data.error) });
       },
       fail: (res2) => {
-        dd.alert({content: JSON.stringify(res2)});
+        dd.alert({ content: JSON.stringify(res2) });
       },
       complete: (res2) => {
         dd.hideLoading();
