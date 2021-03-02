@@ -2,7 +2,6 @@
   <view class="page-description">采购单价</view>
   <form onSubmit="onSubmit" onReset="onReset">
     <view class="page-section">
-
       <view class="form-row">
         <view class="form-row-label">大类</view>
         <view class="form-row-content">
@@ -10,7 +9,6 @@
         </view>
       </view>
       <view class="form-line" />
-
       <view class="form-row">
         <view class="form-row-label">规格</view>
         <view class="form-row-content">
@@ -18,7 +16,6 @@
         </view>
       </view>
       <view class="form-line" />
-
       <view class="form-row">
         <view class="form-row-label">计量单位</view>
         <view class="form-row-content">
@@ -26,7 +23,6 @@
         </view>
       </view>
       <view class="form-line" />
-
       <view class="form-row">
         <view class="form-row-label">数量</view>
         <view class="form-row-content">
@@ -34,7 +30,6 @@
         </view>
       </view>
       <view class="form-line" />
-      
       <view class="page-section">
         <view class="page-section-title">备注</view>
         <view class="page-section-demo">
@@ -42,23 +37,26 @@
         </view>
       </view>
       <view class="form-line" />
-
       <view class="form-row">
         <view class="form-row-label">供应商</view>
         <view class="form-row-content">
           <input class="input" name="name_company" disabled="disabled" value="{{data_1.name_company}}" />
         </view>
+      </view>
+      <view class="form-row">
+        <view class="form-row-label">筛选</view>
+        <view class="form-row-content">
+          <input class="input" onInput="bindKeyInput" />
+        </view>
         <button type="ghost" size="mini" onTap="select_company" loading>供应商</button>
       </view>
       <view class="form-line" />
-
       <view class="form-row">
         <view class="form-row-label">单价</view>
         <view class="form-row-content">
           <input class="input" name="price" value="{{data_1.price}}" />
         </view>
       </view>
-
     </view>
     <view class="page-section">
       <view class="page-section-btns">

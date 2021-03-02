@@ -6,7 +6,8 @@ Page({
       url: ""
     },
     data_1: {},
-    no_body: ''
+    no_body: '',
+    filter_company: '',
   },
   history_price(){
     var t = this;
@@ -23,6 +24,7 @@ Page({
       data: {
         username: t.data.login.username,
         code_login: t.data.login.code_login,
+        filter: t.data.filter_company,
         name_space: name_space
       },
       dataType: 'json',
@@ -57,6 +59,11 @@ Page({
     var t = this;
     t.select_item("StorageWork.PurchaseEditPriceBody.AlxgroupControl1name_company"
     , "no_company", "name_company");
+  },
+  bindKeyInput(e) {
+    this.setData({
+      filter_company: e.detail.value,
+    });
   },
   onLoad(e) {
     //e.no_ls
