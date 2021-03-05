@@ -2,8 +2,9 @@
 
 <view style="display: flex; justify-content: space-between;">
   <view>
-  <button type="ghost" size="mini" onTap="newdate_1">{{date_1}}</button>
-  <button style="margin-left: 5px;" type="ghost" size="mini" onTap="newdate_2">{{date_2}}</button>
+  <button type="ghost" size="mini" onTap="newdate_1" disabled="{{is_history ? '' : 'disabled'}}">{{date_1}}</button>
+  <button style="margin-left: 5px;" type="ghost" size="mini" onTap="newdate_2" disabled="{{is_history ? '' : 'disabled'}}">{{date_2}}</button>
+  <button style="margin-left: 5px; {{is_history ? '' : 'color: #888;'}}" type="ghost" size="mini" onTap="history_1">历史</button>
   </view>
 </view>
 <view>
