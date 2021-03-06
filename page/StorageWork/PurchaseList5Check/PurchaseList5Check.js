@@ -14,6 +14,7 @@ Page({
     },
     date_1: '',
     date_2: '',
+    is_history: false,
   },
   newdate_1() {
     var t = this;
@@ -38,6 +39,11 @@ Page({
         t.onLoad();
       },
     });
+  },
+  history_1() {
+    var t = this;
+    t.setData({ "is_history": !t.data.is_history });
+    t.onLoad();
   },
   handleListItemTap(e) {
     var t = this;
@@ -84,6 +90,7 @@ Page({
             code_login: t.data.login.code_login,
             date_start: t.data.date_1,
             date_end: t.data.date_2 + " 23:59:59",
+            is_history: t.data.is_history,
             name_space: "StorageWork.PurchaseList5Check.BindinggridControl1"
           },
           dataType: 'json',
